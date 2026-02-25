@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Option B: Caring Teal — Ingram Consulting Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #0F766E;       /* stone-800 */
+      --secondary: #0D9488;     /* teal-600 */
+      --cta: #F97316;           /* orange-500 */
+      --cta-hover: #EA580C;     /* orange-600 */
+      --bg: #FAFAF9;            /* stone-50 */
+      --surface: #F0FDFA;       /* teal-50 */
+      --surface-alt: #CCFBF1;   /* teal-100 */
+      --text: #1C1917;          /* stone-900 */
+      --muted: #78716C;         /* stone-500 */
+      --border: #E7E5E4;        /* stone-200 */
+      --accent-bg: #CCFBF1;     /* teal-100 */
+      --accent-text: #115E59;   /* teal-800 */
+      --icon-bg: #CCFBF1;       /* teal-100 */
+      --icon-text: #0F766E;     /* teal-700 */
+      --icon-bg2: #D6D3D1;      /* stone-300 */
+      --icon-text2: #57534E;    /* stone-600 */
+      --dark-section: #134E4A;  /* teal-900 */
+      --dark-text: #F0FDFA;     /* teal-50 */
+      --dark-muted: #99F6E4;    /* teal-200 */
+      --footer-bg: #042F2E;     /* teal-950 */
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', 'DM Sans', serif; line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 16px; left: 16px; right: 16px; z-index: 50;
+      background: rgba(250,250,249,0.92); backdrop-filter: blur(12px);
+      border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    header .inner { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; height: 64px; max-width: 1200px; margin: 0 auto; }
+    .logo { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--primary); }
+    .logo span { color: var(--secondary); }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { font-size: 0.875rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn-primary {
+      background: var(--cta); color: #fff; padding: 10px 24px; border-radius: 10px;
+      font-size: 0.875rem; font-weight: 600; transition: background 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--cta-hover); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text); padding: 10px 24px; border-radius: 10px;
+      font-size: 0.875rem; font-weight: 500; background: transparent; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--primary); }
+
+    /* HERO */
+    .hero { padding: 140px 0 80px; }
+    .hero .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+      background: var(--accent-bg); border: 1px solid var(--border); border-radius: 999px;
+      font-size: 0.875rem; font-weight: 500; color: var(--accent-text); margin-bottom: 24px;
+    }
+    .badge .dot { width: 8px; height: 8px; background: var(--cta); border-radius: 50%; }
+    .hero h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 24px; }
+    .hero h1 span { color: var(--secondary); }
+    .hero p { font-size: 1.125rem; color: var(--muted); margin-bottom: 32px; max-width: 480px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 16px; margin-bottom: 48px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .hero-stats .stat-val { font-family: 'DM Serif Display', serif; font-size: 1.875rem; color: var(--primary); }
+    .hero-stats .stat-lbl { font-size: 0.8125rem; color: var(--muted); }
+    .hero-img { position: relative; }
+    .hero-img img { border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/5; }
+    .float-card {
+      position: absolute; background: #fff; padding: 16px; border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08); border: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .float-card.top { top: 32px; left: -16px; }
+    .float-card.bottom { bottom: 32px; right: -16px; }
+    .float-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .float-label { font-size: 0.75rem; color: var(--muted); }
+    .float-value { font-size: 1.125rem; font-weight: 700; }
+
+    /* STATS */
+    .stats { padding: 80px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .stat-card { text-align: center; padding: 24px; border-radius: 16px; background: var(--surface); }
+    .stat-icon { width: 56px; height: 56px; margin: 0 auto 16px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .stat-number { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 4px; }
+    .stat-label { font-size: 0.8125rem; color: var(--muted); font-weight: 500; }
+
+    /* SERVICES */
+    .services { padding: 96px 0; background: var(--surface); }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-badge {
+      display: inline-flex; padding: 8px 16px; border-radius: 999px; font-size: 0.875rem;
+      font-weight: 500; margin-bottom: 16px;
+    }
+    .section-header h2 { font-size: 2.25rem; color: var(--primary); margin-bottom: 12px; }
+    .section-header p { font-size: 1.125rem; color: var(--muted); max-width: 560px; margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: #fff; padding: 32px; border-radius: 16px; border: 1px solid var(--border);
+      transition: all 0.2s; cursor: pointer;
+    }
+    .service-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+    .service-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.25rem; }
+    .service-card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--primary); }
+    .service-card p { color: var(--muted); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 20px; }
+    .service-link { font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+    .service-card:hover .service-link { gap: 12px; }
+
+    /* ABOUT */
+    .about { padding: 96px 0; }
+    .about .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-img { border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+    .about h2 { font-size: 2.25rem; color: var(--primary); margin-bottom: 24px; }
+    .about h2 span { color: var(--secondary); }
+    .about p { font-size: 1.0625rem; color: var(--muted); margin-bottom: 20px; line-height: 1.7; }
+    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .value-item { display: flex; gap: 12px; }
+    .value-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+    .value-title { font-size: 0.9375rem; font-weight: 600; color: var(--text); font-family: 'DM Sans', sans-serif; }
+    .value-desc { font-size: 0.8125rem; color: var(--muted); }
+
+    /* CLIENTS */
+    .clients { padding: 96px 0; background: var(--surface); }
+    .clients-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .client-card { background: #fff; padding: 32px; border-radius: 16px; border: 1px solid var(--border); transition: all 0.2s; }
+    .client-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .client-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .client-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+    .client-card h3 { font-size: 1.25rem; color: var(--primary); }
+    .client-list { list-style: none; }
+    .client-list li { display: flex; align-items: flex-start; gap: 12px; padding: 6px 0; color: var(--muted); font-size: 0.9375rem; }
+    .client-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
+
+    /* TESTIMONIALS */
+    .testimonials { padding: 96px 0; background: var(--dark-section); color: var(--dark-text); }
+    .testimonials .section-badge { background: rgba(255,255,255,0.1); color: var(--cta); border: none; }
+    .testimonials .section-header h2 { color: #fff; }
+    .testimonial-card { background: #fff; border-radius: 16px; padding: 48px; max-width: 800px; margin: 0 auto; position: relative; }
+    .quote-icon { position: absolute; top: 24px; left: 24px; font-size: 4rem; color: var(--border); line-height: 1; }
+    .stars { display: flex; gap: 2px; margin-bottom: 24px; color: #F59E0B; font-size: 1.25rem; }
+    .testimonial-card blockquote { font-size: 1.1875rem; color: #57534E; line-height: 1.7; margin-bottom: 32px; position: relative; z-index: 1; }
+    .testimonial-author { font-weight: 600; color: var(--text); }
+    .testimonial-role { font-size: 0.875rem; color: var(--muted); }
+
+    /* CONTACT */
+    .contact { padding: 96px 0; }
+    .contact .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .contact h2 { font-size: 2.25rem; color: var(--primary); margin-bottom: 12px; }
+    .contact h2 span { color: var(--secondary); }
+    .contact-info h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 16px; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+    .contact-info > p { color: var(--muted); margin-bottom: 32px; line-height: 1.7; }
+    .contact-item { display: flex; gap: 16px; margin-bottom: 24px; }
+    .contact-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+    .contact-label { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 600; }
+    .contact-value { font-weight: 500; color: var(--text); }
+    .contact-value a { color: var(--text); transition: color 0.2s; }
+    .contact-value a:hover { color: var(--secondary); }
+    .contact-form { background: var(--surface); padding: 32px; border-radius: 16px; border: 1px solid var(--border); }
+    .form-group { margin-bottom: 24px; }
+    .form-group label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border);
+      background: #fff; font-family: inherit; font-size: 0.9375rem; color: var(--text);
+      transition: border-color 0.2s; outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--cta); box-shadow: 0 0 0 3px rgba(217,119,6,0.15); }
+    .form-group textarea { resize: none; min-height: 120px; }
+    .form-submit { width: 100%; }
+
+    /* FOOTER */
+    footer { background: var(--footer-bg); color: #A8A29E; padding: 64px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .logo { color: #F5F5F4; }
+    .footer-brand p { color: #78716C; font-size: 0.875rem; line-height: 1.7; margin: 16px 0; }
+    .footer-contact-line { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: #78716C; margin-bottom: 8px; }
+    .footer-contact-line svg { color: var(--cta); }
+    .footer-contact-line a { color: #78716C; transition: color 0.2s; }
+    .footer-contact-line a:hover { color: #fff; }
+    footer h4 { color: #F5F5F4; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; font-family: 'DM Sans', sans-serif; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 12px; }
+    footer ul a { color: #78716C; font-size: 0.875rem; transition: color 0.2s; }
+    footer ul a:hover { color: #fff; }
+    .footer-bottom { padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #57534E; }
+    .footer-bottom a { color: #57534E; transition: color 0.2s; }
+    .footer-bottom a:hover { color: #fff; }
+
+    /* COLOR VARIANTS FOR CARDS */
+    .c-amber { background: var(--icon-bg); color: var(--icon-text); }
+    .c-stone { background: var(--icon-bg2); color: var(--icon-text2); }
+    .c-warm { background: #FEF3C7; color: #92400E; }
+    .c-green { background: #ECFDF5; color: #047857; }
+    .c-rose { background: #FFF1F2; color: #BE123C; }
+    .c-violet { background: #F5F3FF; color: #6D28D9; }
+    .c-orange { background: #FFF7ED; color: #C2410C; }
+    .c-teal { background: #F0FDFA; color: #0F766E; }
+
+    .sb-amber { background: var(--accent-bg); color: var(--accent-text); border: 1px solid rgba(180,83,9,0.15); }
+    .sb-green { background: #ECFDF5; color: #047857; border: 1px solid rgba(4,120,87,0.15); }
+
+    .cl-amber li::before { background: #D97706; }
+    .cl-green li::before { background: #047857; }
+    .cl-violet li::before { background: #6D28D9; }
+    .cl-orange li::before { background: #EA580C; }
+
+    .link-amber { color: var(--secondary); }
+    .link-green { color: #047857; }
+    .link-violet { color: #6D28D9; }
+    .link-orange { color: #EA580C; }
+    .link-teal { color: #0F766E; }
+    .link-rose { color: #BE123C; }
+
+    /* PALETTE LABEL */
+    .palette-label {
+      position: fixed; bottom: 24px; left: 24px; z-index: 100;
+      background: var(--primary); color: #fff; padding: 12px 20px; border-radius: 12px;
+      font-size: 0.875rem; font-weight: 600; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .palette-label small { display: block; font-weight: 400; font-size: 0.75rem; opacity: 0.7; margin-top: 2px; }
+
+    @media (max-width: 768px) {
+      .hero .grid, .about .grid, .contact .grid, .footer-grid { grid-template-columns: 1fr; }
+      .services-grid, .clients-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero h1 { font-size: 2.5rem; }
+      nav { display: none; }
+      .hero-img { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="palette-label">Option B: Caring Teal<small>Teal + Orange / Trust & Warmth</small></div>
+
+<!-- HEADER -->
+<header>
+  <div class="inner">
+    <div class="logo">Consult<span>Ingram</span></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Team</a>
+      <a href="#">Contact</a>
+      <button class="btn-primary">Get Started</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="badge"><span class="dot"></span> Developing People. Strengthening Organizations.</div>
+        <h1>Human Capital <span>Solutions</span> That Work</h1>
+        <p>Ingram Consulting Group provides subject matter expertise, advocacy, training, and organizational improvement to help you solve your most challenging "People" problems.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" style="padding:16px 32px;font-size:1rem;">Schedule Consultation &rarr;</button>
+          <button class="btn-outline" style="padding:16px 32px;">View Our Services</button>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-val">5,000+</div><div class="stat-lbl">Leaders Coached</div></div>
+          <div><div class="stat-val">50+</div><div class="stat-lbl">Curricula Designed</div></div>
+          <div><div class="stat-val">30+</div><div class="stat-lbl">Years Experience</div></div>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1080&q=80" alt="Professional consultant" />
+        <div class="float-card top">
+          <div class="float-icon c-green">&#9733;</div>
+          <div><div class="float-label">Leaders Coached</div><div class="float-value" style="color:#047857;">5,000+</div></div>
+        </div>
+        <div class="float-card bottom">
+          <div class="float-icon c-amber">&#9670;</div>
+          <div><div class="float-label">Curricula Designed</div><div class="float-value">50+</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-icon c-amber">&#9679;</div><div class="stat-number">5,000+</div><div class="stat-label">Leaders Coached</div></div>
+      <div class="stat-card"><div class="stat-icon c-green">&#9679;</div><div class="stat-number">50+</div><div class="stat-label">Curricula Designed</div></div>
+      <div class="stat-card"><div class="stat-icon c-violet">&#9679;</div><div class="stat-number">25+</div><div class="stat-label">Agencies Served</div></div>
+      <div class="stat-card"><div class="stat-icon c-warm">&#9679;</div><div class="stat-number">30+</div><div class="stat-label">Years of Excellence</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge sb-amber">What We Offer</div>
+      <h2>Our Services</h2>
+      <p>Expert consulting solutions for your organization's human capital and development needs</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon c-amber">&#9632;</div><h3>Leadership Development</h3><p>Comprehensive programs to develop effective leaders at all organizational levels.</p><span class="service-link link-amber">Learn more &rarr;</span></div>
+      <div class="service-card"><div class="service-icon c-green">&#9632;</div><h3>Strategic Planning</h3><p>Facilitate strategic planning processes that align vision, mission, and goals.</p><span class="service-link link-green">Learn more &rarr;</span></div>
+      <div class="service-card"><div class="service-icon c-violet">&#9632;</div><h3>Executive Coaching</h3><p>One-on-one coaching for senior leaders to enhance performance and navigate transitions.</p><span class="service-link link-violet">Learn more &rarr;</span></div>
+      <div class="service-card"><div class="service-icon c-warm">&#9632;</div><h3>Meeting Facilitation</h3><p>Expert facilitation for retreats, off-sites, and critical meetings that drive results.</p><span class="service-link link-amber">Learn more &rarr;</span></div>
+      <div class="service-card"><div class="service-icon c-rose">&#9632;</div><h3>Change Management</h3><p>Guide organizations through transitions with proven change management frameworks.</p><span class="service-link link-rose">Learn more &rarr;</span></div>
+      <div class="service-card"><div class="service-icon c-orange">&#9632;</div><h3>Team Building</h3><p>Experiential programs that strengthen collaboration, trust, and communication.</p><span class="service-link link-orange">Learn more &rarr;</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <img class="about-img" src="https://images.unsplash.com/photo-1770777843445-2a1621b1201d?auto=format&fit=crop&w=1080&q=80" alt="Team collaboration" />
+      </div>
+      <div>
+        <div class="section-badge sb-amber" style="margin-bottom:16px;">About Us</div>
+        <h2>Your Trusted <span>Human Capital Partner</span></h2>
+        <p>Founded in 1995, Ingram Consulting Group has been at the forefront of organizational development for over 30 years. Based in the Washington, D.C. metropolitan area, we provide subject matter expertise, advocacy, training, and organizational improvement services.</p>
+        <p>Our team of senior consultants brings diverse perspectives and proven track records across government, healthcare, and nonprofit sectors — helping organizations solve their most challenging "People" problems.</p>
+        <div class="values-grid">
+          <div class="value-item"><div class="value-icon c-stone">&#10003;</div><div><div class="value-title">Excellence</div><div class="value-desc">Committed to delivering exceptional results</div></div></div>
+          <div class="value-item"><div class="value-icon c-stone">&#10003;</div><div><div class="value-title">Integrity</div><div class="value-desc">Building trust through transparent practices</div></div></div>
+          <div class="value-item"><div class="value-icon c-stone">&#10003;</div><div><div class="value-title">People-Centered</div><div class="value-desc">Human capital at the heart of everything</div></div></div>
+          <div class="value-item"><div class="value-icon c-stone">&#10003;</div><div><div class="value-title">Collaboration</div><div class="value-desc">Partnering to co-create lasting solutions</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge sb-green">Trusted Partners</div>
+      <h2>Our Clients</h2>
+      <p>Proud to serve federal agencies, healthcare organizations, and nonprofits</p>
+    </div>
+    <div class="clients-grid">
+      <div class="client-card"><div class="client-header"><div class="client-icon c-amber">&#9733;</div><h3>Federal Government</h3></div><ul class="client-list cl-amber"><li>U.S. Department of State</li><li>USAID</li><li>U.S. Dept. of Housing &amp; Urban Development</li><li>FEMA</li><li>U.S. Dept. of Health &amp; Human Services</li></ul></div>
+      <div class="client-card"><div class="client-header"><div class="client-icon c-green">&#9829;</div><h3>Healthcare &amp; Nonprofit</h3></div><ul class="client-list cl-green"><li>Washington Hospital Center</li><li>Arthritis Foundation</li><li>Community health organizations</li><li>Nonprofit service providers</li></ul></div>
+      <div class="client-card"><div class="client-header"><div class="client-icon c-violet">&#9733;</div><h3>Government Agencies</h3></div><ul class="client-list cl-violet"><li>Federal training programs</li><li>Agency leadership development</li><li>Interagency collaboration</li><li>Government-wide workforce programs</li></ul></div>
+      <div class="client-card"><div class="client-header"><div class="client-icon c-orange">&#9733;</div><h3>International</h3></div><ul class="client-list cl-orange"><li>Programs across the United States</li><li>Africa-based initiatives</li><li>Japan-based programs</li><li>International development projects</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Testimonials</div>
+      <h2>What Our Clients Say</h2>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote-icon">&ldquo;</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Ingram Consulting Group transformed our leadership development program. Their deep understanding of government organizational dynamics and hands-on coaching approach delivered results beyond our expectations."</blockquote>
+      <div class="testimonial-author">Senior Executive</div>
+      <div class="testimonial-role">Federal Government Agency</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge sb-amber">Get In Touch</div>
+      <h2>Let's Start a <span style="color:var(--secondary)">Conversation</span></h2>
+      <p>Ready to invest in your people? Reach out to discuss your organization's goals</p>
+    </div>
+    <div class="grid">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>We're here to help you develop your human capital and strengthen your organization.</p>
+        <div class="contact-item"><div class="contact-icon c-amber">&#9993;</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:leangela@consultingram.com">leangela@consultingram.com</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon c-amber">&#9742;</div><div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:+12026436011">(202) 643-6011</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon c-amber">&#9906;</div><div><div class="contact-label">Address</div><div class="contact-value">4938 Hampden Lane #302<br>Bethesda, MD 20814</div></div></div>
+      </div>
+      <div class="contact-form">
+        <div class="form-group"><label>Your Name *</label><input type="text" placeholder="Your full name" /></div>
+        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="you@organization.com" /></div>
+        <div class="form-group"><label>Organization</label><input type="text" placeholder="Your organization" /></div>
+        <div class="form-group"><label>Message *</label><textarea placeholder="Tell us about your organization's needs..."></textarea></div>
+        <button class="btn-primary form-submit" style="padding:16px;font-size:1rem;">Send Message &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Consult<span>Ingram</span></div>
+        <p>Ingram Consulting Group provides subject matter expertise, advocacy, training, and organizational improvement services. Your trusted partner for human capital development since 1995.</p>
+        <div class="footer-contact-line"><span style="color:var(--cta)">&#9993;</span> <a href="mailto:leangela@consultingram.com">leangela@consultingram.com</a></div>
+        <div class="footer-contact-line"><span style="color:var(--cta)">&#9742;</span> <a href="tel:+12026436011">(202) 643-6011</a></div>
+        <div class="footer-contact-line"><span style="color:var(--cta)">&#9906;</span> 4938 Hampden Lane #302, Bethesda, MD 20814</div>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#">Leadership Development</a></li><li><a href="#">Executive Coaching</a></li><li><a href="#">Strategic Planning</a></li><li><a href="#">All Services</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Ingram Consulting Group. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
