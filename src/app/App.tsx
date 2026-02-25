@@ -1,29 +1,28 @@
+import { Routes, Route } from 'react-router';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { Stats } from './components/Stats';
-import { About } from './components/About';
-import { CaseStudies } from './components/CaseStudies';
-import { Testimonials } from './components/Testimonials';
-import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
+import { HomePage } from './pages/HomePage';
+import { ServicesPage } from './pages/ServicesPage';
+import { AboutPage } from './pages/AboutPage';
+import { TeamPage } from './pages/TeamPage';
+import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   return (
     <div className="size-full">
+      <ScrollToTop />
       <Header />
       <main>
-        <Hero />
-        <Stats />
-        <Services />
-        <About />
-        <CaseStudies />
-        <Testimonials />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
       <Footer />
-      <ScrollToTop />
     </div>
   );
 }

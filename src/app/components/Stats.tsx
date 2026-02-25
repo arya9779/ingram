@@ -1,69 +1,61 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
-import { Users, CheckCircle2, TrendingUp, Award } from 'lucide-react';
+import { Users, BookOpen, Building2, Award } from 'lucide-react';
 
 const stats = [
   {
     icon: Users,
-    number: '500+',
-    label: 'Clients Worldwide',
-    color: 'blue',
+    number: '5,000+',
+    label: 'Leaders Coached',
+    color: 'bg-sky-50 text-sky-700',
   },
   {
-    icon: CheckCircle2,
-    number: '1200+',
-    label: 'Projects Completed',
-    color: 'green',
+    icon: BookOpen,
+    number: '50+',
+    label: 'Curricula Designed',
+    color: 'bg-emerald-50 text-emerald-700',
   },
   {
-    icon: TrendingUp,
-    number: '98%',
-    label: 'Client Satisfaction',
-    color: 'purple',
+    icon: Building2,
+    number: '25+',
+    label: 'Agencies Served',
+    color: 'bg-violet-50 text-violet-700',
   },
   {
     icon: Award,
-    number: '25+',
-    label: 'Industry Awards',
-    color: 'orange',
+    number: '30+',
+    label: 'Years of Excellence',
+    color: 'bg-amber-50 text-amber-700',
   },
 ];
-
-const colorClasses = {
-  blue: 'from-blue-500 to-blue-600',
-  green: 'from-green-500 to-green-600',
-  purple: 'from-purple-500 to-purple-600',
-  orange: 'from-orange-500 to-orange-600',
-};
 
 export function Stats() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto" ref={ref}>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
-            const gradient = colorClasses[stat.color as keyof typeof colorClasses];
 
             return (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
+                className="text-center p-6 rounded-2xl bg-slate-50/50"
               >
-                <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
-                  <Icon className="text-white" size={28} />
+                <div className={`w-14 h-14 mx-auto mb-4 rounded-2xl flex items-center justify-center ${stat.color.split(' ')[0]}`}>
+                  <Icon className={stat.color.split(' ')[1]} size={24} />
                 </div>
-                <div className={`text-4xl md:text-5xl mb-2 bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                <div className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-slate-500 font-medium text-sm">{stat.label}</div>
               </motion.div>
             );
           })}
