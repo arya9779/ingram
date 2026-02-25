@@ -97,9 +97,9 @@ export function Hero() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/10">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1763739527737-e3626d731072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNvbnN1bHRpbmclMjBwcm9mZXNzaW9uYWwlMjBtZWV0aW5nfGVufDF8fHx8MTc3MjA1MjM1MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Professional consulting team meeting"
-                className="w-full h-auto"
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1080&q=80"
+                alt="Confident professional woman leading a consulting session"
+                className="w-full h-auto object-cover aspect-[4/5]"
               />
               {/* Floating Cards */}
               <motion.div
