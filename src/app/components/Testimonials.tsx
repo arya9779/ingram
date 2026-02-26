@@ -1,136 +1,74 @@
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
-import { useRef, useState } from 'react';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-
-const testimonials = [
-  {
-    quote:
-      "Ingram Consulting Group transformed our leadership development program. Their deep understanding of government organizational dynamics and hands-on coaching approach delivered results beyond our expectations.",
-    author: 'Senior Executive',
-    position: 'Federal Government Agency',
-    rating: 5,
-  },
-  {
-    quote:
-      "The team's expertise in strategic planning was instrumental in aligning our organization's vision with actionable goals. Their facilitation skills brought our leadership team together like never before.",
-    author: 'Program Director',
-    position: 'Healthcare Organization',
-    rating: 5,
-  },
-  {
-    quote:
-      "Outstanding consulting experience. They understood our diversity and inclusion challenges and provided training that made a real, lasting impact on our organizational culture.",
-    author: 'HR Director',
-    position: 'Nonprofit Organization',
-    rating: 5,
-  },
-  {
-    quote:
-      "Professional, knowledgeable, and results-driven. ICG has been an invaluable partner in developing our team's capacity and building resilient leadership throughout our agency.",
-    author: 'Division Chief',
-    position: 'Federal Agency',
-    rating: 5,
-  },
-];
+import { Link } from 'react-router';
 
 export function Testimonials() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const next = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prev = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900">
-      <div className="max-w-5xl mx-auto" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-white/10 rounded-full text-sky-300 text-sm font-medium">
-            Testimonials
-          </div>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
-            What Our Clients Say
-          </h2>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative"
-        >
-          <div className="bg-white rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-xl">
-            <div className="absolute top-6 left-6 text-slate-100">
-              <Quote size={64} fill="currentColor" />
-            </div>
-
-            <div className="relative z-10">
-              <div className="flex mb-6">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-5 h-5 text-amber-400 fill-current"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center mb-16">
+          <h2 className="text-base font-semibold leading-7 text-primary uppercase tracking-wide">Testimonials</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-secondary sm:text-4xl">Trusted by Industry Leaders</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-col justify-between rounded-xl bg-blue-50 p-8 shadow-sm border border-blue-100 hover:border-blue-200 transition-colors">
+            <div>
+              <div className="flex gap-1 text-primary mb-4">
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
               </div>
-
-              <p className="text-lg md:text-xl text-slate-700 mb-8 leading-relaxed">
-                "{testimonials[currentIndex].quote}"
-              </p>
-
+              <p className="text-lg text-slate-700 font-medium italic">"Consultingram transformed our operational workflow. Their strategic insights helped us reduce overhead by 25% within just six months."</p>
+            </div>
+            <div className="mt-8 flex items-center gap-4">
+              <img alt="Sarah Johnson" className="h-12 w-12 rounded-full object-cover ring-2 ring-primary ring-offset-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8CRj1XxChwzGQBONnBRIi2TXFs-0ph1bXgRx_drnXlvPtLxWTLCjHbgjc2u5WBbH9RHilUYIOAYp36DfQ6UB25DAtEskwSDOh-rYWj-SS9ePlvyQ7gb055fSnvpHcO90uwtCvxPPESqsdp3W6LsYkQbZM_sQlU_KNEWlpDrZguwvs-w5IZ7Gm-Re5eAbo7rkbozLFKYd7OGWtt-Nk-mPmvuV4-5rzwTSaOnEjx7YtxslEqrlMdc3rdCAWAM-L4Sa75-j_a4IyVW8" />
               <div>
-                <p className="font-heading font-semibold text-slate-900">{testimonials[currentIndex].author}</p>
-                <p className="text-slate-500 text-sm">{testimonials[currentIndex].position}</p>
+                <h4 className="text-base font-bold text-secondary">Sarah Johnson</h4>
+                <p className="text-sm text-slate-500">CEO, TechFlow Inc.</p>
               </div>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex justify-center gap-4 mt-8">
-            <button
-              onClick={prev}
-              className="w-11 h-11 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-200 cursor-pointer"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="text-white" size={20} />
-            </button>
-            <button
-              onClick={next}
-              className="w-11 h-11 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-200 cursor-pointer"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="text-white" size={20} />
-            </button>
+          <div className="flex flex-col justify-between rounded-xl bg-blue-50 p-8 shadow-sm border border-blue-100 hover:border-blue-200 transition-colors">
+            <div>
+              <div className="flex gap-1 text-primary mb-4">
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+              </div>
+              <p className="text-lg text-slate-700 font-medium italic">"The financial advisory team provided clarity during our merger. We couldn't have navigated the complexities without their expert guidance."</p>
+            </div>
+            <div className="mt-8 flex items-center gap-4">
+              <img alt="Michael Chen" className="h-12 w-12 rounded-full object-cover ring-2 ring-primary ring-offset-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTqwtUp_FbSnoJzztwmGnQYO6ehSxroA6ASQw7b4v5Ea3n0UXweqjWiSNPCu66K64u_vms0Dly7Ey0IDRDO0s24_FKrQNQ8KiPEXkJ1cmaHuHhD7zkpqq4xtW5lkI4SAiJBBMJxfC5EWdUKOJ7R9d0A5cWtBVc6blEslmodyX6USyy6iHIR_lxeN7_WUKZm1tjOc5mHoOpXK51r4ffwsunfzJB93xf5t-EHmhi1ZUMOsAYZzb_C2EAzTALatW1aH3f7YbKTLBf2qc" />
+              <div>
+                <h4 className="text-base font-bold text-secondary">Michael Chen</h4>
+                <p className="text-sm text-slate-500">CFO, Global Logistics</p>
+              </div>
+            </div>
           </div>
 
-          {/* Indicators */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  index === currentIndex ? 'w-8 bg-sky-400' : 'w-2 bg-white/30'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
+          <div className="flex flex-col justify-between rounded-xl bg-blue-50 p-8 shadow-sm border border-blue-100 hover:border-blue-200 transition-colors">
+            <div>
+              <div className="flex gap-1 text-primary mb-4">
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+                <span className="material-symbols-outlined text-[20px] fill-current">star</span>
+              </div>
+              <p className="text-lg text-slate-700 font-medium italic">"Professional, insightful, and results-driven. The strategic planning workshop aligned our entire executive team."</p>
+            </div>
+            <div className="mt-8 flex items-center gap-4">
+              <img alt="Elena Rodriguez" className="h-12 w-12 rounded-full object-cover ring-2 ring-primary ring-offset-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNsdv5Tfn64oPVtKqDJsk0EPJ8Hjk_atQmZkrZum19-f-0hwZztQRdIPKuFCagl03FQKsbzD84jg_wIJ-i9lNHchkflfSDlSN7xP61l1-rPh69zy0qI-l4orllx-iO_xhMB6c9PE3VujMqYRmVraVa0thYg9L-n4mSjrtKT9GDdNZszOA4GtoXw7Kr4lJjJFLwr8Aih88pJQRENmzy0fpzID-BIi-D0am_JHvzD006b9ODx1FmcIbVX_4TRDQjRBeWiXDrihMI62k" />
+              <div>
+                <h4 className="text-base font-bold text-secondary">Elena Rodriguez</h4>
+                <p className="text-sm text-slate-500">Director of Ops, RetailGroup</p>
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

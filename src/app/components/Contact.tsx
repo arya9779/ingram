@@ -1,206 +1,160 @@
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
-import { useRef, useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useState } from 'react';
 
 export function Contact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    message: '',
+    interest: '',
+    message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', company: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.id]: e.target.value
     });
   };
 
-  return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-sky-50 border border-sky-100 rounded-full text-sky-700 text-sm font-medium">
-            Get In Touch
-          </div>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-4">
-            Let's Start a{' '}
-            <span className="text-sky-700">
-              Conversation
-            </span>
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Ready to invest in your people? Reach out to discuss your organization's goals
-          </p>
-        </motion.div>
+  const textClass = "text-xl sm:text-2xl font-sans font-bold text-slate-400 leading-relaxed";
+  const inputClass = "w-full bg-transparent border-none text-xl sm:text-2xl font-sans font-bold text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-0 peer px-0 py-1";
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-2xl font-heading font-semibold text-slate-900 mb-4">Contact Information</h3>
-            <p className="text-slate-600 mb-8 leading-relaxed">
-              We're here to help you develop your human capital and strengthen your organization.
-              Contact us through any of the following channels, and our team will respond promptly.
+  return (
+    <section id="contact" className="py-24 bg-slate-50 relative overflow-hidden text-left z-10 w-full border-t border-slate-100">
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+
+          {/* Left Column - Contact Info */}
+          <div className="flex flex-col justify-center">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-orange-100 text-primary w-fit">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              <span className="text-sm font-bold tracking-wide uppercase">Get in Touch</span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 leading-[1.15]">
+              Let's build something <span className="text-primary">extraordinary</span> together.
+            </h2>
+            <p className="text-lg text-slate-600 mb-12 max-w-lg leading-relaxed">
+              Whether you need strategic guidance, operational optimization, or transformational leadership, our experts are ready to help you navigate complexity.
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 bg-sky-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="text-sky-700" size={20} />
+            <div className="space-y-8">
+              <div className="flex items-start gap-5 group">
+                <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm border border-slate-100 group-hover:bg-primary group-hover:text-white transition-all duration-300 flex-shrink-0 group-hover:scale-110">
+                  <span className="material-symbols-outlined text-[28px]">mail</span>
                 </div>
-                <div>
-                  <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Email</p>
-                  <a href="mailto:leangela@consultingram.com" className="text-slate-900 hover:text-sky-700 transition-colors duration-200 font-medium">
-                    leangela@consultingram.com
-                  </a>
+                <div className="flex flex-col justify-center h-14">
+                  <h4 className="text-sm font-bold text-slate-900 mb-1 uppercase tracking-wide">Email Us</h4>
+                  <a href="mailto:info@consultingram.com" className="text-lg text-slate-600 hover:text-primary transition-colors">info@consultingram.com</a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 bg-sky-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="text-sky-700" size={20} />
+              <div className="flex items-start gap-5 group">
+                <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm border border-slate-100 group-hover:bg-primary group-hover:text-white transition-all duration-300 flex-shrink-0 group-hover:scale-110">
+                  <span className="material-symbols-outlined text-[28px]">call</span>
                 </div>
-                <div>
-                  <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Phone</p>
-                  <a href="tel:+12026436011" className="text-slate-900 hover:text-sky-700 transition-colors duration-200 font-medium">
-                    (202) 643-6011
-                  </a>
+                <div className="flex flex-col justify-center h-14">
+                  <h4 className="text-sm font-bold text-slate-900 mb-1 uppercase tracking-wide">Call Us</h4>
+                  <a href="tel:+18005551234" className="text-lg text-slate-600 hover:text-primary transition-colors">+1 (800) 555-1234</a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 bg-sky-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="text-sky-700" size={20} />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Address</p>
-                  <p className="text-slate-900 font-medium">
-                    4938 Hampden Lane #302<br />
-                    Bethesda, MD 20814
-                  </p>
-                </div>
-              </div>
             </div>
+          </div>
 
-            {/* Office Hours */}
-            <div className="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-100">
-              <h4 className="text-sm font-heading font-semibold text-slate-900 mb-3 uppercase tracking-wider">Office Hours</h4>
-              <div className="space-y-1.5 text-sm">
-                <div className="flex justify-between text-slate-600">
-                  <span>Monday - Friday</span>
-                  <span className="font-medium text-slate-900">9:00 AM - 6:00 PM</span>
+          {/* Right Column - Mad Libs Form */}
+          <div className="relative">
+            <div className="absolute inset-0 bg-white shadow-xl shadow-blue-900/5 rounded-3xl -z-10 border border-slate-100"></div>
+            <div className="p-8 sm:p-12 relative z-10">
+              <form onSubmit={(e) => e.preventDefault()} className="max-w-[500px]">
+
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-3 mb-8">
+                  <span className={textClass}>My name is</span>
+                  <div className="relative inline-block flex-1 min-w-[200px] max-w-[300px]">
+                    <input
+                      id="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      type="text"
+                      placeholder="FULL NAME"
+                      className={inputClass}
+                      required
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-[3px] bg-slate-200 transition-colors pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-primary transition-all duration-500 ease-out peer-hover:w-full peer-focus:w-full peer-focus:shadow-[0_4px_12px_rgba(249,115,22,0.3)] pointer-events-none"></div>
+                  </div>
+                  <span className={textClass}>and</span>
                 </div>
-                <div className="flex justify-between text-slate-600">
-                  <span>Saturday</span>
-                  <span className="font-medium text-slate-500">By appointment</span>
+
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-3 mb-8">
+                  <span className={textClass}>I can be reached at</span>
+                  <div className="relative inline-block w-full sm:flex-1 min-w-[250px]">
+                    <input
+                      id="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      type="email"
+                      placeholder="EMAIL ADDRESS"
+                      className={inputClass}
+                      required
+                    />
+                    <div className="absolute bottom-0 left-0 w-full h-[3px] bg-slate-200 transition-colors pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-primary transition-all duration-500 ease-out peer-hover:w-full peer-focus:w-full peer-focus:shadow-[0_4px_12px_rgba(249,115,22,0.3)] pointer-events-none"></div>
+                  </div>
+                  <span className={textClass}>.</span>
                 </div>
-                <div className="flex justify-between text-slate-600">
-                  <span>Sunday</span>
-                  <span className="font-medium text-slate-500">Closed</span>
+
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-3 mb-8">
+                  <span className={textClass}>I'm interested in</span>
+                  <div className="relative inline-block w-full sm:flex-1 min-w-[250px] group/select">
+                    <select
+                      id="interest"
+                      value={formData.interest}
+                      onChange={handleChange}
+                      className={`${inputClass} appearance-none cursor-pointer pr-8 bg-transparent`}
+                      required
+                    >
+                      <option value="" disabled className="text-slate-400 font-normal text-base">SELECT SERVICE...</option>
+                      <option value="strategy" className="text-slate-800 font-normal text-base">Strategic Planning</option>
+                      <option value="financial" className="text-slate-800 font-normal text-base">Financial Advisory</option>
+                      <option value="operations" className="text-slate-800 font-normal text-base">Operational Excellence</option>
+                      <option value="other" className="text-slate-800 font-normal text-base">Something Else</option>
+                    </select>
+                    <div className="absolute bottom-0 left-0 w-full h-[3px] bg-slate-200 transition-colors pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-primary transition-all duration-500 ease-out peer-hover:w-full peer-focus:w-full peer-focus:shadow-[0_4px_12px_rgba(249,115,22,0.3)] pointer-events-none"></div>
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 group-hover/select:text-primary transition-colors">
+                      <span className="material-symbols-outlined text-[24px]">expand_more</span>
+                    </div>
+                  </div>
+                  <span className={textClass}>.</span>
                 </div>
-              </div>
+
+                <div className="flex flex-col gap-y-3 mb-12 w-full">
+                  <span className={textClass}>Here are some details:</span>
+                  <div className="relative w-full mt-2">
+                    <textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="TELL US ABOUT YOUR PROJECT..."
+                      className="w-full bg-transparent border-none text-xl sm:text-2xl font-sans font-bold text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-0 peer resize-none px-0 py-1"
+                      rows={3}
+                    ></textarea>
+                    <div className="absolute bottom-0 left-0 w-full h-[3px] bg-slate-200 transition-colors pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-primary transition-all duration-500 ease-out peer-hover:w-full peer-focus:w-full peer-focus:shadow-[0_4px_12px_rgba(249,115,22,0.3)] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <button type="submit" className="group bg-secondary hover:bg-slate-900 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1 hover:shadow-primary/20 flex items-center justify-center cursor-pointer w-full text-lg">
+                    Send Message <span className="material-symbols-outlined ml-3 transition-transform group-hover:translate-x-1 text-[20px]">arrow_forward</span>
+                  </button>
+                </div>
+              </form>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <form onSubmit={handleSubmit} className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-sm mb-2 text-slate-700 font-medium">
-                  Your Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 focus:outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
-                  placeholder="Your full name"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-sm mb-2 text-slate-700 font-medium">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 focus:outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
-                  placeholder="you@organization.com"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="company" className="block text-sm mb-2 text-slate-700 font-medium">
-                  Organization
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 focus:outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400"
-                  placeholder="Your organization"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm mb-2 text-slate-700 font-medium">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 focus:outline-none transition-all duration-200 resize-none text-slate-900 placeholder:text-slate-400"
-                  placeholder="Tell us about your organization's needs..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-slate-900 text-white px-8 py-4 rounded-lg hover:bg-slate-800 transition-all duration-200 flex items-center justify-center gap-2 group font-medium cursor-pointer shadow-lg shadow-slate-900/20"
-              >
-                Send Message
-                <Send className="group-hover:translate-x-1 transition-transform duration-200" size={18} />
-              </button>
-            </form>
-          </motion.div>
         </div>
       </div>
     </section>

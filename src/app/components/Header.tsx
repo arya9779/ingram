@@ -18,101 +18,86 @@ export function Header() {
 
   const navItems = [
     { label: 'Home', to: '/' },
-    { label: 'Services', to: '/services' },
     { label: 'About', to: '/about' },
-    { label: 'Team', to: '/team' },
-    { label: 'Contact', to: '/contact' },
+    { label: 'Services', to: '/services' },
+    { label: 'Case Studies', to: '/case-studies' },
+    { label: 'Contact Us', to: '/contact' },
   ];
 
   return (
-    <header
-      className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 rounded-2xl ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-slate-900/5'
-          : 'bg-white/80 backdrop-blur-sm'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center"
-          >
-            <Link to="/" className="text-2xl font-heading font-bold text-slate-900 tracking-tight">
-              Consult<span className="text-sky-700">Ingram</span>
-            </Link>
-          </motion.div>
+    <header className={`sticky top-0 z-50 w-full border-b transition-colors duration-300 ${isScrolled ? 'border-blue-100 bg-white/95 backdrop-blur-sm' : 'border-transparent bg-white/80 backdrop-blur-sm'}`}>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center">
+            <img src="/logo.png" alt="Consultingram" className="h-10 w-auto object-contain" />
+          </Link>
+        </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            item.label === 'Services' ? (
+              <div key={item.label} className="relative group">
                 <Link
                   to={item.to}
-                  className={`text-sm font-medium relative group cursor-pointer transition-colors duration-200 ${
-                    location.pathname === item.to
-                      ? 'text-slate-900'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
+                  className={`flex items-center gap-1 text-sm font-medium transition-colors py-2 ${location.pathname.startsWith(item.to) ? 'text-secondary hover:text-primary' : 'text-slate-500 hover:text-primary'}`}
                 >
                   {item.label}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-sky-700 transition-all duration-300 ${
-                      location.pathname === item.to ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}
-                  />
+                  <span className="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-300">expand_more</span>
                 </Link>
-              </motion.div>
-            ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
+                <div className="absolute left-0 top-full pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                  <div className="w-56 bg-white rounded-xl shadow-xl shadow-blue-900/10 border border-blue-100 overflow-hidden flex flex-col p-2">
+                    <Link to="/services#strategy" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Strategic Planning</Link>
+                    <Link to="/services#finance" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Financial Advisory</Link>
+                    <Link to="/services#operations" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Operational Excellence</Link>
+                    <Link to="/services#mna" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Mergers &amp; Acquisitions</Link>
+                    <Link to="/services#digital" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Digital Transformation</Link>
+                    <div className="h-px bg-slate-100 my-1 mx-2"></div>
+                    <Link to="/services" className="px-4 py-2 text-xs font-bold text-primary uppercase tracking-wider hover:bg-orange-50 rounded-lg transition-colors text-center mt-1">View All Services</Link>
+                  </div>
+                </div>
+              </div>
+            ) : (
               <Link
-                to="/contact"
-                className="bg-slate-900 text-white px-6 py-2.5 rounded-lg hover:bg-slate-800 transition-colors duration-200 text-sm font-medium cursor-pointer"
+                key={item.label}
+                to={item.to}
+                className={`text-sm font-medium transition-colors ${location.pathname === item.to ? 'text-secondary hover:text-primary' : 'text-slate-500 hover:text-primary'}`}
               >
-                Get Started
+                {item.label}
               </Link>
-            </motion.div>
-          </nav>
+            )
+          ))}
+        </nav>
 
-          {/* Mobile Menu Button */}
+        <div className="flex items-center gap-4">
+          <Link
+            to="/contact"
+            className="hidden sm:flex h-10 items-center justify-center rounded-full bg-primary px-6 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-orange-600 shadow-md shadow-orange-200"
+          >
+            Book Consultation
+          </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-slate-700 cursor-pointer p-2 -mr-2 rounded-lg hover:bg-slate-100 transition-colors"
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            className="flex md:hidden items-center justify-center p-2 text-slate-900 hover:bg-slate-100 rounded-full"
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden pb-4"
-          >
+      {isMobileMenuOpen && (
+        <motion.nav
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden bg-white border-b border-blue-100"
+        >
+          <div className="px-4 py-4 space-y-3 flex flex-col">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
-                className={`block py-3 transition-colors duration-200 text-sm font-medium ${
-                  location.pathname === item.to
-                    ? 'text-slate-900'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
+                className={`block py-2 text-sm font-medium transition-colors ${location.pathname === item.to ? 'text-secondary' : 'text-slate-500'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
@@ -120,14 +105,14 @@ export function Header() {
             ))}
             <Link
               to="/contact"
-              className="block w-full mt-2 bg-slate-900 text-white px-6 py-2.5 rounded-lg text-center text-sm font-medium cursor-pointer"
+              className="mt-4 flex h-10 w-full items-center justify-center rounded-full bg-primary px-6 text-sm font-bold text-white shadow-md shadow-orange-200"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Get Started
+              Book Consultation
             </Link>
-          </motion.nav>
-        )}
-      </div>
+          </div>
+        </motion.nav>
+      )}
     </header>
   );
 }

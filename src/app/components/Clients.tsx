@@ -1,117 +1,137 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
-import { Building2, Heart, Shield, Globe } from 'lucide-react';
 
 const clientCategories = [
   {
-    icon: Building2,
-    category: 'Federal Government',
+    title: "Federal & Local Government",
+    icon: "account_balance",
     clients: [
-      'U.S. Department of State',
-      'USAID',
-      'U.S. Department of Housing & Urban Development (HUD)',
-      'Federal Emergency Management Agency (FEMA)',
-      'U.S. Department of Health & Human Services (HHS)',
-    ],
-    color: 'sky',
+      "U.S. Department of Army",
+      "U.S. Agency for International Development",
+      "U.S. Department of Agriculture (APHIS/AMS)",
+      "United States Navy: Naval District Washington",
+      "U.S. Attorney's Office",
+      "U.S. Department of Commerce",
+      "U.S. Census Bureau",
+      "U.S. Department of Education",
+      "U.S. Department of Energy",
+      "U.S. Department of Health and Human Services (SAMHSA)",
+      "U.S. Department of Labor",
+      "U.S. Department of Transportation (FHWA)",
+      "U.S. Environmental Protection Agency",
+      "U.S. Department of State (Foreign Service Institute)",
+      "U.S. Department of Treasury",
+      "Frederick County [Maryland] Teachers' Association",
+      "District of Columbia Superior Court"
+    ]
   },
   {
-    icon: Heart,
-    category: 'Healthcare & Nonprofit',
+    title: "Academic & Education",
+    icon: "school",
     clients: [
-      'Washington Hospital Center',
-      'Arthritis Foundation',
-      'Community health organizations',
-      'Nonprofit service providers',
-    ],
-    color: 'emerald',
+      "Anne Arundel Community College",
+      "Bowie University",
+      "Howard University",
+      "Johns Hopkins University",
+      "Montgomery Community College",
+      "Morehouse School of Medicine"
+    ]
   },
   {
-    icon: Shield,
-    category: 'Government Agencies',
+    title: "Private Sector",
+    icon: "business",
     clients: [
-      'Federal training programs',
-      'Agency leadership development',
-      'Interagency collaboration initiatives',
-      'Government-wide workforce programs',
-    ],
-    color: 'violet',
+      "Chesapeake Utilities",
+      "Colleague Training",
+      "Cygnus Corporation",
+      "ORC/MACRO International",
+      "Graduate School, USA",
+      "Jenkins and Jones Law Firm",
+      "Management Consulting & Associates",
+      "Benchmark Training"
+    ]
   },
   {
-    icon: Globe,
-    category: 'International',
+    title: "Non-Profit Sector",
+    icon: "volunteer_activism",
     clients: [
-      'Programs across the United States',
-      'Africa-based initiatives',
-      'Japan-based programs',
-      'International development projects',
-    ],
-    color: 'amber',
+      "American Bar Association",
+      "ATTC-Southeast & Mountain West",
+      "Partnership for Public Service",
+      "Global Learning Systems",
+      "The Council for Excellence in Government",
+      "Florida Prevention Partners",
+      "NC School for Alcohol and Drug Studies"
+    ]
   },
+  {
+    title: "Hospitals & Healthcare",
+    icon: "local_hospital",
+    clients: [
+      "Washington Hospital",
+      "Whitman Walker Clinic",
+      "Wellmont Healthcare Systems"
+    ]
+  }
 ];
-
-const colorClasses: Record<string, { bg: string; text: string; border: string }> = {
-  sky: { bg: 'bg-sky-50', text: 'text-sky-700', border: 'border-sky-100' },
-  emerald: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-100' },
-  violet: { bg: 'bg-violet-50', text: 'text-violet-700', border: 'border-violet-100' },
-  amber: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-100' },
-};
 
 export function Clients() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <section id="clients" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50">
-      <div className="max-w-7xl mx-auto" ref={ref}>
+    <section id="clients" className="py-24 bg-white relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-700 text-sm font-medium">
-            Trusted Partners
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-orange-100 text-primary w-fit border border-orange-200">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span className="text-sm font-bold tracking-wide uppercase">Our Clients</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-4">
-            Our Clients
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+            Trusted by <span className="text-secondary">Industry Leaders</span>
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Proud to serve federal agencies, healthcare organizations, and nonprofits across the nation and internationally
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            We are proud to have partnered with a diverse array of respected organizations across the public, private, academic, and healthcare sectors.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {clientCategories.map((cat, index) => {
-            const Icon = cat.icon;
-            const colors = colorClasses[cat.color];
-
-            return (
-              <motion.div
-                key={cat.category}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-2xl border border-slate-100 hover:shadow-lg hover:shadow-slate-900/5 transition-all duration-200"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-12 h-12 ${colors.bg} rounded-xl flex items-center justify-center`}>
-                    <Icon className={colors.text} size={24} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {clientCategories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-slate-50 rounded-2xl border border-slate-100 shadow-lg shadow-blue-900/5 overflow-hidden group hover:border-primary/40 hover:shadow-xl hover:shadow-blue-900/10 transition-all duration-300"
+            >
+              <div className="bg-secondary p-6 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-slate-800 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="flex items-center gap-4 relative z-10">
+                  <div className="w-12 h-12 bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white backdrop-blur-sm group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                    <span className="material-symbols-outlined">{category.icon}</span>
                   </div>
-                  <h3 className="text-xl font-heading font-semibold text-slate-900">{cat.category}</h3>
+                  <h3 className="text-lg font-bold text-white pr-2 group-hover:text-primary-100 transition-colors">{category.title}</h3>
                 </div>
-                <ul className="space-y-3">
-                  {cat.clients.map((client) => (
-                    <li key={client} className="flex items-start gap-3">
-                      <div className={`w-1.5 h-1.5 ${colors.bg.replace('50', '500')} rounded-full mt-2 flex-shrink-0`} />
-                      <span className="text-slate-600">{client}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
+              </div>
+              <ul className="p-6 space-y-4">
+                {category.clients.map((client) => (
+                  <li key={client} className="flex items-start text-slate-700 text-sm hover:text-primary transition-colors cursor-default">
+                    <span className="material-symbols-outlined text-[18px] text-primary/70 mt-0.5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0">trip_origin</span>
+                    <span className="leading-snug font-medium text-slate-600">{client}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
