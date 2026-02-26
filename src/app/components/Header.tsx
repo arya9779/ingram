@@ -24,11 +24,14 @@ export function Header() {
   const isActive = (path: string) =>
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
+  const isHomePage = location.pathname === '/';
+  const isSolid = !isHomePage || isScrolled;
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)]'
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isSolid
+        ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)]'
+        : 'bg-transparent'
         }`}
     >
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 lg:px-8">
@@ -37,7 +40,7 @@ export function Header() {
           <img
             src="/logo.png"
             alt="ICG"
-            className={`h-9 w-auto object-contain transition-all duration-300 ${isScrolled ? '' : 'brightness-0 invert'
+            className={`h-9 w-auto object-contain transition-all duration-300 ${isSolid ? '' : 'brightness-0 invert'
               }`}
           />
         </Link>
@@ -49,12 +52,12 @@ export function Header() {
               key={item.label}
               to={item.to}
               className={`relative px-4 py-2 text-[13px] font-semibold tracking-wide uppercase transition-colors duration-200 rounded-lg ${isActive(item.to)
-                  ? isScrolled
-                    ? 'text-primary'
-                    : 'text-white'
-                  : isScrolled
-                    ? 'text-slate-600 hover:text-primary hover:bg-slate-50'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                ? isSolid
+                  ? 'text-primary'
+                  : 'text-white'
+                : isSolid
+                  ? 'text-slate-600 hover:text-primary hover:bg-slate-50'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
             >
               {item.label}
@@ -69,16 +72,16 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className={`hidden sm:flex h-10 items-center justify-center rounded-lg px-6 text-[13px] font-bold uppercase tracking-wide transition-all duration-300 ${isScrolled
-                ? 'bg-primary text-white hover:bg-orange-600 shadow-sm'
-                : 'bg-white/15 backdrop-blur-md text-white border border-white/25 hover:bg-white/25'
+            className={`hidden sm:flex h-10 items-center justify-center rounded-lg px-6 text-[13px] font-bold uppercase tracking-wide transition-all duration-300 ${isSolid
+              ? 'bg-primary text-white hover:bg-orange-600 shadow-sm'
+              : 'bg-white/15 backdrop-blur-md text-white border border-white/25 hover:bg-white/25'
               }`}
           >
             Get in Touch
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`flex md:hidden items-center justify-center w-10 h-10 rounded-lg transition-colors ${isScrolled ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+            className={`flex md:hidden items-center justify-center w-10 h-10 rounded-lg transition-colors ${isSolid ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
               }`}
             aria-label="Toggle menu"
           >
@@ -96,8 +99,8 @@ export function Header() {
                 key={item.label}
                 to={item.to}
                 className={`py-3 px-4 rounded-lg text-sm font-semibold transition-colors ${isActive(item.to)
-                    ? 'text-primary bg-orange-50'
-                    : 'text-slate-600 hover:text-primary hover:bg-slate-50'
+                  ? 'text-primary bg-orange-50'
+                  : 'text-slate-600 hover:text-primary hover:bg-slate-50'
                   }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >

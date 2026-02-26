@@ -1,6 +1,3 @@
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
-import { useRef } from 'react';
 import { Link } from 'react-router';
 import {
   Users,
@@ -107,27 +104,20 @@ const services = [
 ];
 
 export function ServicesPage() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
     <div className="bg-slate-50 min-h-screen">
       <section className="pt-32 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto" ref={ref}>
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
               What We <span className="text-primary">Do Best</span>
             </h1>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
               ICG provides subject matter expertise, training, and organizational improvement services across a comprehensive range of human capital disciplines.
             </p>
-          </motion.div>
+          </div>
 
           {/* Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -135,11 +125,8 @@ export function ServicesPage() {
               const Icon = service.icon;
 
               return (
-                <motion.div
+                <div
                   key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.05 }}
                   className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/10 border border-slate-100 hover:border-primary/50 cursor-pointer"
                 >
                   <div className="mb-6 inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-blue-50/50 text-secondary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 shadow-sm border border-blue-100 group-hover:border-transparent">
@@ -147,18 +134,13 @@ export function ServicesPage() {
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-secondary transition-colors">{service.title}</h3>
                   <p className="text-slate-500 leading-relaxed text-sm flex-auto">{service.description}</p>
-                </motion.div>
+                </div>
               );
             })}
           </div>
 
           {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center mt-24 p-12 bg-white border border-slate-100 shadow-xl shadow-blue-900/5 rounded-xl relative overflow-hidden group"
-          >
+          <div className="text-center mt-24 p-12 bg-white border border-slate-100 shadow-xl shadow-blue-900/5 rounded-xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-lg blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-primary/10 transition-colors duration-500"></div>
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-lg blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none group-hover:bg-secondary/10 transition-colors duration-500"></div>
 
@@ -174,7 +156,7 @@ export function ServicesPage() {
             >
               Schedule a Consultation <span className="material-symbols-outlined ml-3 text-[20px]">calendar_month</span>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>
