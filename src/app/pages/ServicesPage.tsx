@@ -121,16 +121,11 @@ export function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-lg bg-orange-100/50 text-primary w-fit border border-orange-200">
-              <span className="w-2 h-2 rounded-lg bg-primary animate-pulse"></span>
-              <span className="text-sm font-bold tracking-wide uppercase">Our Expertise</span>
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
-              Consulting <span className="text-primary">Services</span>
+              What We <span className="text-primary">Do Best</span>
             </h1>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Consultingram provides subject matter expertise, advocacy, training, and
-              organizational improvement services across a comprehensive range of disciplines.
+              ICG provides subject matter expertise, training, and organizational improvement services across a comprehensive range of human capital disciplines.
             </p>
           </motion.div>
 

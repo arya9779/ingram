@@ -6,8 +6,7 @@ export function Services() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            <h2 className="text-base font-semibold leading-7 text-primary uppercase tracking-wide">What We Do</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-secondary sm:text-4xl">Solving Your Toughest "People" Problems</p>
+            <p className="text-3xl font-bold tracking-tight text-secondary sm:text-4xl">Solving Your Toughest "People" Problems</p>
             <p className="mt-4 text-lg leading-8 text-slate-700">
               ICG provides a targeted array of strategic services designed to develop your leaders, align your teams, and transform your organizational culture — from the ground up.
             </p>

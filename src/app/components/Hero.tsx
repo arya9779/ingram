@@ -16,10 +16,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-secondary/75"></div>
             <div className="relative px-6 py-16 sm:px-12 sm:py-20 lg:px-16">
               <div className="max-w-3xl">
-                <p className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-orange-200 text-sm font-bold tracking-wide uppercase">
-                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                  Developing People · Strengthening Organizations
-                </p>
+
                 <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl mb-5 leading-[1.1]">
                   Your People Are Your Strategy. <br className="hidden sm:block" />We Make Them <span className="text-primary">Unstoppable.</span>
                 </h1>

@@ -6,12 +6,7 @@ export function About() {
       {/* Who We Are */}
       <section id="about" className="py-20 px-4 md:px-10 lg:px-20 xl:px-40">
         <div className="mx-auto max-w-7xl">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-8 h-px bg-primary"></div>
-            <div className="inline-flex items-center px-3 py-1 rounded-md border border-primary/30 text-primary text-xs font-bold uppercase tracking-wide">
-              Who We Are
-            </div>
-          </div>
+
           <h2 className="text-3xl md:text-[40px] font-extrabold text-slate-900 leading-tight mb-4 max-w-3xl">
             We Don't Just Consult. <span className="text-primary">We Build Leaders Who Last.</span>
           </h2>
@@ -86,12 +81,7 @@ export function About() {
       {/* Our Services */}
       <section className="py-20 px-4 md:px-10 lg:px-20 xl:px-40 bg-secondary">
         <div className="mx-auto max-w-7xl">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-8 h-px bg-primary"></div>
-            <div className="inline-flex items-center px-3 py-1 rounded-md border border-primary/30 text-primary text-xs font-bold uppercase tracking-wide">
-              Our Services
-            </div>
-          </div>
+
           <h2 className="text-3xl md:text-[40px] font-extrabold text-white leading-tight mb-12 max-w-3xl">
             Six Proven Services. One Mission: Develop Your People. Strengthen Your Organization.
           </h2>

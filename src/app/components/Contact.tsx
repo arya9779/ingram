@@ -27,10 +27,7 @@ export function Contact() {
 
           {/* Left Column - Contact Info */}
           <div className="flex flex-col justify-center">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-lg bg-orange-100 text-primary w-fit">
-              <span className="w-2 h-2 rounded-lg bg-primary animate-pulse"></span>
-              <span className="text-sm font-bold tracking-wide uppercase">Start a Conversation</span>
-            </div>
+
 
             <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 leading-[1.15]">
               Ready to invest in your <span className="text-primary">people?</span>

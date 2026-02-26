@@ -94,12 +94,7 @@ export function Clients() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-8 h-px bg-primary"></div>
-            <span className="inline-flex items-center px-3 py-1 rounded-md border border-primary/30 text-primary text-xs font-bold uppercase tracking-wide">
-              Industries We Serve
-            </span>
-          </div>
+
           <h2 className="text-3xl md:text-[40px] font-extrabold text-slate-900 leading-tight max-w-2xl">
             Trusted Across Government, Healthcare & Beyond
           </h2>

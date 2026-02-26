@@ -5,9 +5,7 @@ export function CaseStudies() {
     <>
       <section id="case-studies" className="py-20 px-6 bg-slate-50">
         <div className="max-w-[960px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-100 text-primary text-xs font-bold uppercase tracking-wider mb-6">
-            proven impact
-          </div>
+
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-slate-900">
             Real results from <span className="text-primary">real partnerships</span>.
           </h2>
