@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
-import { motion } from 'motion/react';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,9 +8,7 @@ export function Header() {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -20,98 +17,104 @@ export function Header() {
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
-    { label: 'Case Studies', to: '/case-studies' },
-    { label: 'Contact Us', to: '/contact' },
+    { label: 'Our Team', to: '/team' },
+    { label: 'Contact', to: '/contact' },
   ];
 
-  return (
-    <header className={`sticky top-0 z-50 w-full border-b transition-colors duration-300 ${isScrolled ? 'border-blue-100 bg-white/95 backdrop-blur-sm' : 'border-transparent bg-white/80 backdrop-blur-sm'}`}>
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-3">
-          <Link to="/" className="flex items-center">
-            <img src="/logo.png" alt="Consultingram" className="h-10 w-auto object-contain" />
-          </Link>
-        </div>
+  const isActive = (path: string) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
-        <nav className="hidden md:flex items-center gap-8">
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)]'
+          : 'bg-transparent'
+        }`}
+    >
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 lg:px-8">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <img
+            src="/logo.png"
+            alt="ICG"
+            className={`h-9 w-auto object-contain transition-all duration-300 ${isScrolled ? '' : 'brightness-0 invert'
+              }`}
+          />
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
-            item.label === 'Services' ? (
-              <div key={item.label} className="relative group">
-                <Link
-                  to={item.to}
-                  className={`flex items-center gap-1 text-sm font-medium transition-colors py-2 ${location.pathname.startsWith(item.to) ? 'text-secondary hover:text-primary' : 'text-slate-500 hover:text-primary'}`}
-                >
-                  {item.label}
-                  <span className="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-300">expand_more</span>
-                </Link>
-                <div className="absolute left-0 top-full pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-                  <div className="w-56 bg-white rounded-xl shadow-xl shadow-blue-900/10 border border-blue-100 overflow-hidden flex flex-col p-2">
-                    <Link to="/services#strategy" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Strategic Planning</Link>
-                    <Link to="/services#finance" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Financial Advisory</Link>
-                    <Link to="/services#operations" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Operational Excellence</Link>
-                    <Link to="/services#mna" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Mergers &amp; Acquisitions</Link>
-                    <Link to="/services#digital" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 rounded-lg transition-colors">Digital Transformation</Link>
-                    <div className="h-px bg-slate-100 my-1 mx-2"></div>
-                    <Link to="/services" className="px-4 py-2 text-xs font-bold text-primary uppercase tracking-wider hover:bg-orange-50 rounded-lg transition-colors text-center mt-1">View All Services</Link>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={item.label}
-                to={item.to}
-                className={`text-sm font-medium transition-colors ${location.pathname === item.to ? 'text-secondary hover:text-primary' : 'text-slate-500 hover:text-primary'}`}
-              >
-                {item.label}
-              </Link>
-            )
+            <Link
+              key={item.label}
+              to={item.to}
+              className={`relative px-4 py-2 text-[13px] font-semibold tracking-wide uppercase transition-colors duration-200 rounded-lg ${isActive(item.to)
+                  ? isScrolled
+                    ? 'text-primary'
+                    : 'text-white'
+                  : isScrolled
+                    ? 'text-slate-600 hover:text-primary hover:bg-slate-50'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                }`}
+            >
+              {item.label}
+              {isActive(item.to) && (
+                <span className="absolute bottom-0 left-4 right-4 h-[2px] bg-primary rounded-full" />
+              )}
+            </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        {/* CTA + Mobile Toggle */}
+        <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden sm:flex h-10 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-orange-600 shadow-md shadow-orange-200"
+            className={`hidden sm:flex h-10 items-center justify-center rounded-lg px-6 text-[13px] font-bold uppercase tracking-wide transition-all duration-300 ${isScrolled
+                ? 'bg-primary text-white hover:bg-orange-600 shadow-sm'
+                : 'bg-white/15 backdrop-blur-md text-white border border-white/25 hover:bg-white/25'
+              }`}
           >
-            Book Consultation
+            Get in Touch
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex md:hidden items-center justify-center p-2 text-slate-900 hover:bg-slate-100 rounded-lg"
+            className={`flex md:hidden items-center justify-center w-10 h-10 rounded-lg transition-colors ${isScrolled ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+              }`}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.nav
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white border-b border-blue-100"
-        >
-          <div className="px-4 py-4 space-y-3 flex flex-col">
+        <nav className="md:hidden bg-white border-t border-slate-100 shadow-lg">
+          <div className="px-6 py-6 space-y-1 flex flex-col">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
-                className={`block py-2 text-sm font-medium transition-colors ${location.pathname === item.to ? 'text-secondary' : 'text-slate-500'}`}
+                className={`py-3 px-4 rounded-lg text-sm font-semibold transition-colors ${isActive(item.to)
+                    ? 'text-primary bg-orange-50'
+                    : 'text-slate-600 hover:text-primary hover:bg-slate-50'
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="mt-4 flex h-10 w-full items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-white shadow-md shadow-orange-200"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Book Consultation
-            </Link>
+            <div className="pt-4 border-t border-slate-100 mt-2">
+              <Link
+                to="/contact"
+                className="flex h-11 w-full items-center justify-center rounded-lg bg-primary text-sm font-bold text-white hover:bg-orange-600 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Get in Touch
+              </Link>
+            </div>
           </div>
-        </motion.nav>
+        </nav>
       )}
     </header>
   );
