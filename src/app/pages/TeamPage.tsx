@@ -53,7 +53,7 @@ export function TeamPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-sky-50 border border-sky-100 rounded-full text-sky-700 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-sky-50 border border-sky-100 rounded-lg text-sky-700 text-sm font-medium">
             Our Team
           </div>
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6">

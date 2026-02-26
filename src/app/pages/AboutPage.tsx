@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router';
 import { Award, Shield, Heart, Users, Target, BookOpen } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { Clients } from '../components/Clients';
 
 const values = [
   {
@@ -53,12 +54,12 @@ export function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-20"
           >
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-orange-100 text-primary w-fit border border-orange-200">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-lg bg-orange-100 text-primary w-fit border border-orange-200">
+              <span className="w-2 h-2 rounded-lg bg-primary animate-pulse"></span>
               <span className="text-sm font-bold tracking-wide uppercase">About Us</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Consultingram</span>
+              About <span className="text-primary">Consultingram</span>
             </h1>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Since 1995, we have partnered with government agencies, nonprofits, and private organizations
@@ -74,7 +75,7 @@ export function AboutPage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-secondary/10 rounded-3xl blur-2xl z-0 pointer-events-none"></div>
+              <div className="absolute -inset-4 bg-slate-50 rounded-xl blur-2xl z-0 pointer-events-none"></div>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 z-10">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1770777843445-2a1621b1201d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjB0ZWFtd29yayUyMGNvbGxhYm9yYXRpb258ZW58MXx8fHwxNzcxOTgzMTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
@@ -119,9 +120,9 @@ export function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center mb-20 p-12 bg-blue-50/50 border border-blue-100 rounded-3xl relative overflow-hidden"
+            className="text-center mb-20 p-12 bg-blue-50/50 border border-blue-100 rounded-xl relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-lg blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             <h2 className="text-3xl font-bold text-secondary mb-6 relative z-10">Our Mission</h2>
             <p className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed relative z-10 font-medium">
               To provide organizations with the tools, strategies, and expertise they need to develop
@@ -154,7 +155,7 @@ export function AboutPage() {
                     transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                     className="group bg-white p-6 rounded-2xl border border-slate-100 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/5 relative"
                   >
-                    <div className="w-14 h-14 bg-white border-2 border-primary rounded-full flex items-center justify-center mb-6 shadow-sm mx-auto sm:mx-0 group-hover:scale-110 transition-transform">
+                    <div className="w-14 h-14 bg-white border-2 border-primary rounded-lg flex items-center justify-center mb-6 shadow-sm mx-auto sm:mx-0 group-hover:scale-110 transition-transform">
                       <Icon className="text-primary" size={24} />
                     </div>
                     <h4 className="text-xl font-bold text-slate-900 mb-3 text-center sm:text-left">{value.title}</h4>
@@ -165,6 +166,11 @@ export function AboutPage() {
             </div>
           </motion.div>
 
+          {/* Clients */}
+          <div className="mb-20">
+            <Clients />
+          </div>
+
           {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -174,7 +180,7 @@ export function AboutPage() {
           >
             <Link
               to="/team"
-              className="inline-flex items-center justify-center bg-secondary hover:bg-slate-900 text-white font-bold h-14 px-10 rounded-full transition-all duration-300 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1 text-lg mb-8"
+              className="inline-flex items-center justify-center bg-secondary hover:bg-slate-900 text-white font-bold h-14 px-10 rounded-lg transition-all duration-300 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1 text-lg mb-8"
             >
               Meet Our Team
             </Link>

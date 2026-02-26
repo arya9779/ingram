@@ -49,15 +49,15 @@ export function Team() {
         <main className="pt-24 pb-32 bg-background min-h-screen">
             {/* Header Section */}
             <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-20 text-center relative">
-                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent/30 rounded-full blur-[120px] -z-10" />
-                <div className="absolute top-20 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] -z-10" />
+                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent/30 rounded-lg blur-[120px] -z-10" />
+                <div className="absolute top-20 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-lg blur-[100px] -z-10" />
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
-                    <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-accent/50 border border-orange-900/10 rounded-full text-cta font-medium text-sm shadow-sm ring-1 ring-inset ring-orange-900/10">
+                    <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-accent/50 border border-orange-900/10 rounded-lg text-cta font-medium text-sm shadow-sm ring-1 ring-inset ring-orange-900/10">
                         Our Experts
                     </div>
                     <h1 className="text-4xl md:text-6xl font-heading font-bold text-primary mb-6 leading-tight">
@@ -80,7 +80,7 @@ export function Team() {
                 >
                     <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-50 to-transparent -z-10 pointer-events-none" />
 
-                    <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden rounded-3xl shadow-xl shadow-foreground/5">
+                    <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden rounded-xl shadow-xl shadow-foreground/5">
                         <img
                             src={teamMembers[0].image}
                             alt={teamMembers[0].name}

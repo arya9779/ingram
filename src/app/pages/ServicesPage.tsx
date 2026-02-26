@@ -121,12 +121,12 @@ export function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-orange-100/50 text-primary w-fit border border-orange-200">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-lg bg-orange-100/50 text-primary w-fit border border-orange-200">
+              <span className="w-2 h-2 rounded-lg bg-primary animate-pulse"></span>
               <span className="text-sm font-bold tracking-wide uppercase">Our Expertise</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
-              Consulting <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Services</span>
+              Consulting <span className="text-primary">Services</span>
             </h1>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Consultingram provides subject matter expertise, advocacy, training, and
@@ -162,10 +162,10 @@ export function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center mt-24 p-12 bg-white border border-slate-100 shadow-xl shadow-blue-900/5 rounded-3xl relative overflow-hidden group"
+            className="text-center mt-24 p-12 bg-white border border-slate-100 shadow-xl shadow-blue-900/5 rounded-xl relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-primary/10 transition-colors duration-500"></div>
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none group-hover:bg-secondary/10 transition-colors duration-500"></div>
+            <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-lg blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-primary/10 transition-colors duration-500"></div>
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-lg blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none group-hover:bg-secondary/10 transition-colors duration-500"></div>
 
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 relative z-10">
               Ready to Invest in Your <span className="text-primary">People?</span>
@@ -175,7 +175,7 @@ export function ServicesPage() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex relative z-10 items-center justify-center bg-secondary hover:bg-slate-900 text-white font-bold h-14 px-10 rounded-full transition-all duration-300 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1 text-lg mb-4"
+              className="inline-flex relative z-10 items-center justify-center bg-secondary hover:bg-slate-900 text-white font-bold h-14 px-10 rounded-lg transition-all duration-300 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1 text-lg mb-4"
             >
               Schedule a Consultation <span className="material-symbols-outlined ml-3 text-[20px]">calendar_month</span>
             </Link>

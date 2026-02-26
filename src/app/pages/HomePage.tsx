@@ -1,5 +1,4 @@
 import { Hero } from '../components/Hero';
-import { Services } from '../components/Services';
 import { About } from '../components/About';
 import { Clients } from '../components/Clients';
 import { CaseStudies } from '../components/CaseStudies';
@@ -10,10 +9,9 @@ export function HomePage() {
   return (
     <>
       <Hero />
-      <Services />
       <About />
-      <CaseStudies />
       <Clients />
+      <CaseStudies />
       <Testimonials />
       <Contact />
     </>

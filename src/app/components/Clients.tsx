@@ -6,6 +6,7 @@ const clientCategories = [
   {
     title: "Federal & Local Government",
     icon: "account_balance",
+    accent: "bg-secondary",
     clients: [
       "U.S. Department of Army",
       "U.S. Agency for International Development",
@@ -16,19 +17,20 @@ const clientCategories = [
       "U.S. Census Bureau",
       "U.S. Department of Education",
       "U.S. Department of Energy",
-      "U.S. Department of Health and Human Services (SAMHSA)",
+      "U.S. Dept. of Health & Human Services (SAMHSA)",
       "U.S. Department of Labor",
-      "U.S. Department of Transportation (FHWA)",
+      "U.S. Dept. of Transportation (FHWA)",
       "U.S. Environmental Protection Agency",
-      "U.S. Department of State (Foreign Service Institute)",
+      "U.S. Dept. of State (Foreign Service Institute)",
       "U.S. Department of Treasury",
-      "Frederick County [Maryland] Teachers' Association",
+      "Frederick County Teachers' Association",
       "District of Columbia Superior Court"
     ]
   },
   {
     title: "Academic & Education",
     icon: "school",
+    accent: "bg-blue-600",
     clients: [
       "Anne Arundel Community College",
       "Bowie University",
@@ -41,6 +43,7 @@ const clientCategories = [
   {
     title: "Private Sector",
     icon: "business",
+    accent: "bg-slate-700",
     clients: [
       "Chesapeake Utilities",
       "Colleague Training",
@@ -55,12 +58,13 @@ const clientCategories = [
   {
     title: "Non-Profit Sector",
     icon: "volunteer_activism",
+    accent: "bg-primary",
     clients: [
       "American Bar Association",
       "ATTC-Southeast & Mountain West",
       "Partnership for Public Service",
       "Global Learning Systems",
-      "The Council for Excellence in Government",
+      "Council for Excellence in Government",
       "Florida Prevention Partners",
       "NC School for Alcohol and Drug Studies"
     ]
@@ -68,6 +72,7 @@ const clientCategories = [
   {
     title: "Hospitals & Healthcare",
     icon: "local_hospital",
+    accent: "bg-emerald-700",
     clients: [
       "Washington Hospital",
       "Whitman Walker Clinic",
@@ -81,57 +86,145 @@ export function Clients() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <section id="clients" className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
+    <section id="clients" className="py-24 bg-slate-50 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-orange-100 text-primary w-fit border border-orange-200">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            <span className="text-sm font-bold tracking-wide uppercase">Our Clients</span>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-8 h-px bg-primary"></div>
+            <span className="inline-flex items-center px-3 py-1 rounded-md border border-primary/30 text-primary text-xs font-bold uppercase tracking-wide">
+              Industries We Serve
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
-            Trusted by <span className="text-secondary">Industry Leaders</span>
+          <h2 className="text-3xl md:text-[40px] font-extrabold text-slate-900 leading-tight max-w-2xl">
+            Trusted Across Government, Healthcare & Beyond
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            We are proud to have partnered with a diverse array of respected organizations across the public, private, academic, and healthcare sectors.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {clientCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-slate-50 rounded-2xl border border-slate-100 shadow-lg shadow-blue-900/5 overflow-hidden group hover:border-primary/40 hover:shadow-xl hover:shadow-blue-900/10 transition-all duration-300"
-            >
-              <div className="bg-secondary p-6 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-slate-800 pointer-events-none"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-                <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-12 h-12 bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white backdrop-blur-sm group-hover:bg-primary group-hover:border-primary transition-all duration-300">
-                    <span className="material-symbols-outlined">{category.icon}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white pr-2 group-hover:text-primary-100 transition-colors">{category.title}</h3>
-                </div>
+        {/* Bento Grid — asymmetric, tight, modern */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-auto">
+
+          {/* Row 1: Government (large, spans 7 cols) + Academic (5 cols) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="md:col-span-7 bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100">
+              <div className="w-9 h-9 bg-secondary rounded-lg flex items-center justify-center text-white">
+                <span className="material-symbols-outlined text-[20px]">account_balance</span>
               </div>
-              <ul className="p-6 space-y-4">
-                {category.clients.map((client) => (
-                  <li key={client} className="flex items-start text-slate-700 text-sm hover:text-primary transition-colors cursor-default">
-                    <span className="material-symbols-outlined text-[18px] text-primary/70 mt-0.5 mr-3 group-hover:scale-110 transition-transform flex-shrink-0">trip_origin</span>
-                    <span className="leading-snug font-medium text-slate-600">{client}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+              <h3 className="text-base font-bold text-slate-900">Federal & Local Government</h3>
+              <span className="ml-auto text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded">17</span>
+            </div>
+            <div className="p-5 grid grid-cols-2 gap-x-6 gap-y-2.5">
+              {clientCategories[0].clients.map((c) => (
+                <div key={c} className="flex items-center gap-2 text-sm text-slate-600 py-1 hover:text-secondary transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-sm bg-secondary/50 flex-shrink-0"></span>
+                  {c}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="md:col-span-5 bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100">
+              <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                <span className="material-symbols-outlined text-[20px]">school</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900">Academic & Education</h3>
+              <span className="ml-auto text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded">6</span>
+            </div>
+            <div className="p-5 space-y-2.5">
+              {clientCategories[1].clients.map((c) => (
+                <div key={c} className="flex items-center gap-2 text-sm text-slate-600 py-1 hover:text-blue-700 transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-sm bg-blue-500/50 flex-shrink-0"></span>
+                  {c}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Row 2: Private (5 cols) + Non-Profit (4 cols) + Healthcare (3 cols) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="md:col-span-5 bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100">
+              <div className="w-9 h-9 bg-slate-700 rounded-lg flex items-center justify-center text-white">
+                <span className="material-symbols-outlined text-[20px]">business</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900">Private Sector</h3>
+              <span className="ml-auto text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded">8</span>
+            </div>
+            <div className="p-5 space-y-2.5">
+              {clientCategories[2].clients.map((c) => (
+                <div key={c} className="flex items-center gap-2 text-sm text-slate-600 py-1 hover:text-slate-900 transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-sm bg-slate-400/50 flex-shrink-0"></span>
+                  {c}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="md:col-span-4 bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100">
+              <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center text-white">
+                <span className="material-symbols-outlined text-[20px]">volunteer_activism</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900">Non-Profit</h3>
+              <span className="ml-auto text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded">7</span>
+            </div>
+            <div className="p-5 space-y-2.5">
+              {clientCategories[3].clients.map((c) => (
+                <div key={c} className="flex items-center gap-2 text-sm text-slate-600 py-1 hover:text-primary transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-sm bg-primary/50 flex-shrink-0"></span>
+                  {c}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="md:col-span-3 bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100">
+              <div className="w-9 h-9 bg-emerald-700 rounded-lg flex items-center justify-center text-white">
+                <span className="material-symbols-outlined text-[20px]">local_hospital</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900">Healthcare</h3>
+              <span className="ml-auto text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded">3</span>
+            </div>
+            <div className="p-5 space-y-2.5">
+              {clientCategories[4].clients.map((c) => (
+                <div key={c} className="flex items-center gap-2 text-sm text-slate-600 py-1 hover:text-emerald-700 transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-sm bg-emerald-500/50 flex-shrink-0"></span>
+                  {c}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

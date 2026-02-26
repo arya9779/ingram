@@ -71,13 +71,13 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Link
             to="/contact"
-            className="hidden sm:flex h-10 items-center justify-center rounded-full bg-primary px-6 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-orange-600 shadow-md shadow-orange-200"
+            className="hidden sm:flex h-10 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-orange-600 shadow-md shadow-orange-200"
           >
             Book Consultation
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex md:hidden items-center justify-center p-2 text-slate-900 hover:bg-slate-100 rounded-full"
+            className="flex md:hidden items-center justify-center p-2 text-slate-900 hover:bg-slate-100 rounded-lg"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -105,7 +105,7 @@ export function Header() {
             ))}
             <Link
               to="/contact"
-              className="mt-4 flex h-10 w-full items-center justify-center rounded-full bg-primary px-6 text-sm font-bold text-white shadow-md shadow-orange-200"
+              className="mt-4 flex h-10 w-full items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-white shadow-md shadow-orange-200"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Book Consultation

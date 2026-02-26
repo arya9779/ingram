@@ -1,55 +1,81 @@
+import { Link } from 'react-router';
+
 export function About() {
   return (
     <div className="bg-white">
-      <section id="about" className="py-16 px-4 md:px-10 lg:px-20 xl:px-40">
+      {/* Who We Are */}
+      <section id="about" className="py-20 px-4 md:px-10 lg:px-20 xl:px-40">
         <div className="mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-secondary to-primary rounded-xl opacity-20 blur-lg group-hover:opacity-30 transition duration-500"></div>
-              <div
-                className="relative h-[400px] lg:h-[500px] w-full overflow-hidden rounded-xl shadow-2xl bg-slate-200"
-                style={{
-                  backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsZ0K_CBqo-VED_XWnQ7Usl3sqWBULIovlZfeEXXdXGLTgui0-nG6RHjnKFttG7ag0YjpUhQsE3pLQnJ2i80o5NZA61wAl7T9pao6rsrTpQfIfDt5TVpbrhX5dJokqfdzpb7LDDLfcdCHziDruRTPgpHuny5OcSdg3r72Byc40FF59DwwlwpaQqyCIT25PA6TZn0RLUhngv8-O3fD38H4PxMeygsW3NRwLydJs4ldWkVMrSioXkS39r5WZ3MeTfN2hiY85KIsQIGQ")',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              ></div>
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-xl border border-slate-100 max-w-[200px] hidden md:block">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="material-symbols-outlined text-primary">verified</span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Success Rate</span>
-                </div>
-                <p className="text-3xl font-black text-slate-900">98%</p>
-                <p className="text-sm text-slate-600 mt-1">Client satisfaction over 10 years.</p>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-8 h-px bg-primary"></div>
+            <div className="inline-flex items-center px-3 py-1 rounded-md border border-primary/30 text-primary text-xs font-bold uppercase tracking-wide">
+              Who We Are
+            </div>
+          </div>
+          <h2 className="text-3xl md:text-[40px] font-extrabold text-slate-900 leading-tight mb-4 max-w-3xl">
+            We Don't Just Consult. <span className="text-primary">We Build Leaders Who Last.</span>
+          </h2>
+          <p className="text-base text-slate-500 max-w-3xl mb-4 leading-relaxed">
+            Since 1995, ICG has partnered with federal agencies, healthcare organizations, nonprofits, and private enterprises to design and deliver human capital solutions that build resilient leaders, strengthen teams, and elevate organizational performance.
+          </p>
+          <Link to="/about" className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-white shadow-sm hover:bg-orange-600 transition-all cursor-pointer mb-12">
+            More About Us
+          </Link>
+
+          {/* Bento Grid: Testimonial + Team Photo + Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Testimonial */}
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 flex flex-col justify-center">
+              <p className="text-slate-700 text-base leading-relaxed mb-6 italic">
+                "ICG transformed how our leadership team communicates, collaborates, and drives change. The impact wasn't just immediate — it's been sustained for years."
+              </p>
+              <p className="text-sm font-bold text-slate-900">— Senior Executive,</p>
+              <p className="text-sm text-slate-500">Federal Government Agency</p>
+            </div>
+
+            {/* Team Photo + Small Photo Below */}
+            <div className="flex flex-col gap-6">
+              <div className="rounded-xl overflow-hidden flex-1 min-h-[280px]">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
+                  alt="Team collaboration"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden h-[180px]">
+                <img
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=400&fit=crop"
+                  alt="Meeting"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
-            <div className="flex flex-col gap-6 lg:pl-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 w-fit">
-                <span className="size-2 rounded-full bg-secondary animate-pulse"></span>
-                <span className="text-xs font-bold text-secondary uppercase tracking-wide">Who We Are</span>
+
+            {/* Team Group + Stats */}
+            <div className="flex flex-col gap-6">
+              <div className="rounded-xl overflow-hidden h-[280px]">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=500&fit=crop"
+                  alt="Professional team"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.15]">
-                Strategic partners for your <span className="text-primary">next big leap.</span>
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                At Consultingram, we are a collective of strategists, analysts, and innovators dedicated to transforming businesses. Our diverse team brings decades of experience across industries to solve your most complex challenges.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="flex items-center justify-center rounded-full h-12 px-8 bg-secondary text-white text-base font-bold hover:opacity-90 transition-all cursor-pointer">
-                  Meet the Team
-                </button>
-                <button className="flex items-center justify-center rounded-full h-12 px-8 bg-transparent border border-slate-300 text-slate-900 text-base font-bold hover:bg-slate-50 transition-all cursor-pointer">
-                  Our History
-                </button>
-              </div>
-              <div className="pt-8 border-t border-slate-200 mt-4 flex gap-8">
-                <div>
-                  <h3 className="text-3xl font-bold text-secondary">500+</h3>
-                  <p className="text-sm text-slate-500 font-medium">Projects Completed</p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+                  <p className="text-3xl font-extrabold text-slate-900">30<span className="text-primary">+</span></p>
+                  <p className="text-xs text-slate-500 mt-1 font-medium">Years of Excellence</p>
                 </div>
-                <div>
-                  <h3 className="text-3xl font-bold text-secondary">50+</h3>
-                  <p className="text-sm text-slate-500 font-medium">Expert Consultants</p>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+                  <p className="text-3xl font-extrabold text-slate-900">25<span className="text-primary">+</span></p>
+                  <p className="text-xs text-slate-500 mt-1 font-medium">Agencies Served</p>
+                </div>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+                  <p className="text-3xl font-extrabold text-slate-900">5K<span className="text-primary">+</span></p>
+                  <p className="text-xs text-slate-500 mt-1 font-medium">Leaders Coached</p>
+                </div>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+                  <p className="text-3xl font-extrabold text-slate-900">50<span className="text-primary">+</span></p>
+                  <p className="text-xs text-slate-500 mt-1 font-medium">Curricula Designed</p>
                 </div>
               </div>
             </div>
@@ -57,60 +83,97 @@ export function About() {
         </div>
       </section>
 
-      <section className="py-20 px-4 md:px-10 lg:px-20 xl:px-40 bg-slate-50">
+      {/* Our Services */}
+      <section className="py-20 px-4 md:px-10 lg:px-20 xl:px-40 bg-secondary">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Methodology</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Our Proven Process</h2>
-            <p className="text-lg text-slate-600">
-              We follow a streamlined four-step methodology designed to ensure sustainable growth and measurable results for every client we partner with.
-            </p>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-8 h-px bg-primary"></div>
+            <div className="inline-flex items-center px-3 py-1 rounded-md border border-primary/30 text-primary text-xs font-bold uppercase tracking-wide">
+              Our Services
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            <div className="hidden lg:block absolute top-8 left-0 w-full h-0.5 bg-slate-200 -z-10 translate-y-4"></div>
+          <h2 className="text-3xl md:text-[40px] font-extrabold text-white leading-tight mb-12 max-w-3xl">
+            Six Proven Services. One Mission: Develop Your People. Strengthen Your Organization.
+          </h2>
 
-            <div className="group relative bg-white p-6 rounded-lg border border-slate-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-white border-2 border-primary flex items-center justify-center mb-6 shadow-sm mx-auto lg:mx-0 group-hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-primary text-3xl">search</span>
+          {/* 2 rows of 3 service cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
+              <div className="h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" alt="Training" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <div className="absolute top-6 right-6 text-6xl font-black text-slate-200 -z-10 opacity-50 group-hover:opacity-100 transition-opacity select-none">01</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Discovery</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                We begin by immersing ourselves in your business to understand your goals, culture, and pain points thoroughly.
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Training Nationally & Internationally</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">ICG offers consulting and training in all areas of human capital and organizational development for our clients, and ICG is well versed in all of them.</p>
+                <Link to="/services" className="mt-4 inline-flex items-center text-primary font-bold text-sm hover:underline">
+                  Learn More <span className="material-symbols-outlined ml-1 text-lg">arrow_forward</span>
+                </Link>
+              </div>
             </div>
 
-            <div className="group relative bg-white p-6 rounded-lg border border-slate-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-white border-2 border-primary flex items-center justify-center mb-6 shadow-sm mx-auto lg:mx-0 group-hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-primary text-3xl">analytics</span>
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
+              <div className="h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop" alt="Leadership Development" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <div className="absolute top-6 right-6 text-6xl font-black text-slate-200 -z-10 opacity-50 group-hover:opacity-100 transition-opacity select-none">02</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Analysis</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Our experts conduct a deep dive into data and market trends to identify opportunities and craft a precise strategy.
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Leadership Development</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">ICG provides customized leadership courses and leadership assessments to support and enhance leadership skills at every level.</p>
+                <Link to="/services" className="mt-4 inline-flex items-center text-primary font-bold text-sm hover:underline">
+                  Learn More <span className="material-symbols-outlined ml-1 text-lg">arrow_forward</span>
+                </Link>
+              </div>
             </div>
 
-            <div className="group relative bg-white p-6 rounded-lg border border-slate-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-white border-2 border-primary flex items-center justify-center mb-6 shadow-sm mx-auto lg:mx-0 group-hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-primary text-3xl">extension</span>
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
+              <div className="h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop" alt="Organizational Effectiveness" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <div className="absolute top-6 right-6 text-6xl font-black text-slate-200 -z-10 opacity-50 group-hover:opacity-100 transition-opacity select-none">03</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Implementation</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                We work alongside your team to execute the strategy, ensuring seamless integration and adoption across the board.
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Organizational Effectiveness</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">ICG helps organizations develop strategy through Strategic Planning and organization alignment.</p>
+                <Link to="/services" className="mt-4 inline-flex items-center text-primary font-bold text-sm hover:underline">
+                  Learn More <span className="material-symbols-outlined ml-1 text-lg">arrow_forward</span>
+                </Link>
+              </div>
             </div>
 
-            <div className="group relative bg-white p-6 rounded-lg border border-slate-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-white border-2 border-primary flex items-center justify-center mb-6 shadow-sm mx-auto lg:mx-0 group-hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-primary text-3xl">trending_up</span>
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
+              <div className="h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop" alt="Facilitation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <div className="absolute top-6 right-6 text-6xl font-black text-slate-200 -z-10 opacity-50 group-hover:opacity-100 transition-opacity select-none">04</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Growth</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                We monitor performance and iterate on the solution to drive continuous improvement and ensure long-term success.
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Facilitation & Meeting Design</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">ICG has worked with hundreds of clients to improve the quality of results derived from small & large scale meetings.</p>
+                <Link to="/services" className="mt-4 inline-flex items-center text-primary font-bold text-sm hover:underline">
+                  Learn More <span className="material-symbols-outlined ml-1 text-lg">arrow_forward</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
+              <div className="h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=400&fit=crop" alt="Executive Coaching" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Executive Coach</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">ICG works with clients one on one to develop career strategies. We support and guide employees through transition, performance issues, and new leadership.</p>
+                <Link to="/services" className="mt-4 inline-flex items-center text-primary font-bold text-sm hover:underline">
+                  Learn More <span className="material-symbols-outlined ml-1 text-lg">arrow_forward</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
+              <div className="h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=400&fit=crop" alt="Keynote Speaker" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Keynote Speaker</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">ICG delivers presentations in unique and engaging ways. We deliver content in both, traditional and non-traditional ways. No death by slides!</p>
+                <Link to="/services" className="mt-4 inline-flex items-center text-primary font-bold text-sm hover:underline">
+                  Learn More <span className="material-symbols-outlined ml-1 text-lg">arrow_forward</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

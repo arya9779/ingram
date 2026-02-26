@@ -20,23 +20,23 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 bg-slate-50 relative overflow-hidden text-left z-10 w-full border-t border-slate-100">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-lg blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
           {/* Left Column - Contact Info */}
           <div className="flex flex-col justify-center">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-orange-100 text-primary w-fit">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="text-sm font-bold tracking-wide uppercase">Get in Touch</span>
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-lg bg-orange-100 text-primary w-fit">
+              <span className="w-2 h-2 rounded-lg bg-primary animate-pulse"></span>
+              <span className="text-sm font-bold tracking-wide uppercase">Start a Conversation</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 leading-[1.15]">
-              Let's build something <span className="text-primary">extraordinary</span> together.
+              Ready to invest in your <span className="text-primary">people?</span>
             </h2>
             <p className="text-lg text-slate-600 mb-12 max-w-lg leading-relaxed">
-              Whether you need strategic guidance, operational optimization, or transformational leadership, our experts are ready to help you navigate complexity.
+              Whether you need leadership development, executive coaching, or strategic facilitation — our team brings 30+ years of expertise to every engagement. Let's talk about what's possible.
             </p>
 
             <div className="space-y-8">
@@ -46,7 +46,7 @@ export function Contact() {
                 </div>
                 <div className="flex flex-col justify-center h-14">
                   <h4 className="text-sm font-bold text-slate-900 mb-1 uppercase tracking-wide">Email Us</h4>
-                  <a href="mailto:info@consultingram.com" className="text-lg text-slate-600 hover:text-primary transition-colors">info@consultingram.com</a>
+                  <a href="mailto:leangela@consultingram.com" className="text-lg text-slate-600 hover:text-primary transition-colors">leangela@consultingram.com</a>
                 </div>
               </div>
 
@@ -56,7 +56,18 @@ export function Contact() {
                 </div>
                 <div className="flex flex-col justify-center h-14">
                   <h4 className="text-sm font-bold text-slate-900 mb-1 uppercase tracking-wide">Call Us</h4>
-                  <a href="tel:+18005551234" className="text-lg text-slate-600 hover:text-primary transition-colors">+1 (800) 555-1234</a>
+                  <a href="tel:+12026436011" className="text-lg text-slate-600 hover:text-primary transition-colors">(202) 643-6011</a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-5 group">
+                <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm border border-slate-100 group-hover:bg-primary group-hover:text-white transition-all duration-300 flex-shrink-0 group-hover:scale-110">
+                  <span className="material-symbols-outlined text-[28px]">location_on</span>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <h4 className="text-sm font-bold text-slate-900 mb-1 uppercase tracking-wide">Visit Us</h4>
+                  <p className="text-lg text-slate-600">4938 Hampden Lane #302</p>
+                  <p className="text-lg text-slate-600">Bethesda, MD 20814</p>
                 </div>
               </div>
 
@@ -65,7 +76,7 @@ export function Contact() {
 
           {/* Right Column - Mad Libs Form */}
           <div className="relative">
-            <div className="absolute inset-0 bg-white shadow-xl shadow-blue-900/5 rounded-3xl -z-10 border border-slate-100"></div>
+            <div className="absolute inset-0 bg-white shadow-xl shadow-blue-900/5 rounded-xl -z-10 border border-slate-100"></div>
             <div className="p-8 sm:p-12 relative z-10">
               <form onSubmit={(e) => e.preventDefault()} className="max-w-[500px]">
 
@@ -116,9 +127,12 @@ export function Contact() {
                       required
                     >
                       <option value="" disabled className="text-slate-400 font-normal text-base">SELECT SERVICE...</option>
-                      <option value="strategy" className="text-slate-800 font-normal text-base">Strategic Planning</option>
-                      <option value="financial" className="text-slate-800 font-normal text-base">Financial Advisory</option>
-                      <option value="operations" className="text-slate-800 font-normal text-base">Operational Excellence</option>
+                      <option value="training" className="text-slate-800 font-normal text-base">Training & Development</option>
+                      <option value="leadership" className="text-slate-800 font-normal text-base">Leadership Development</option>
+                      <option value="organizational" className="text-slate-800 font-normal text-base">Organizational Effectiveness</option>
+                      <option value="facilitation" className="text-slate-800 font-normal text-base">Facilitation & Meeting Design</option>
+                      <option value="coaching" className="text-slate-800 font-normal text-base">Executive Coaching</option>
+                      <option value="keynote" className="text-slate-800 font-normal text-base">Keynote Speaking</option>
                       <option value="other" className="text-slate-800 font-normal text-base">Something Else</option>
                     </select>
                     <div className="absolute bottom-0 left-0 w-full h-[3px] bg-slate-200 transition-colors pointer-events-none"></div>
@@ -137,7 +151,7 @@ export function Contact() {
                       id="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="TELL US ABOUT YOUR PROJECT..."
+                      placeholder="TELL US ABOUT YOUR GOALS..."
                       className="w-full bg-transparent border-none text-xl sm:text-2xl font-sans font-bold text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-0 peer resize-none px-0 py-1"
                       rows={3}
                     ></textarea>
@@ -147,7 +161,7 @@ export function Contact() {
                 </div>
 
                 <div className="pt-2">
-                  <button type="submit" className="group bg-secondary hover:bg-slate-900 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1 hover:shadow-primary/20 flex items-center justify-center cursor-pointer w-full text-lg">
+                  <button type="submit" className="group bg-secondary hover:bg-slate-900 text-white font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-xl shadow-blue-900/10 hover:shadow-2xl hover:-translate-y-1 hover:shadow-primary/20 flex items-center justify-center cursor-pointer w-full text-lg">
                     Send Message <span className="material-symbols-outlined ml-3 transition-transform group-hover:translate-x-1 text-[20px]">arrow_forward</span>
                   </button>
                 </div>
