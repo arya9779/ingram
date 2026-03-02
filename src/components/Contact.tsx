@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MapPin, Mail, Phone, Clock } from 'lucide-react'
+import { MapPin, Mail, Phone, Clock, ChevronDown } from 'lucide-react'
 
 export function Contact() {
     const [formData, setFormData] = useState({
@@ -15,7 +15,7 @@ export function Contact() {
         setFormData({ ...formData, [e.target.id]: e.target.value })
     }
 
-    const inputClass = "w-full bg-transparent border-b border-slate-300 text-[15px] font-sans text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-primary py-3 transition-colors peer"
+    const inputClass = "w-full bg-transparent border-b border-slate-300 text-[17px] font-sans text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-primary py-3 transition-colors peer"
 
     return (
         <section id="contact" className="py-24 bg-secondary text-white w-full border-b border-white/10 relative">
@@ -75,8 +75,8 @@ export function Contact() {
                     </div>
 
                     {/* Right Column - Form inside Light Box */}
-                    <div className="flex-1 lg:max-w-[700px] bg-[#d3d9e3] rounded-[40px] p-10 md:p-14 text-slate-900 shadow-2xl z-10 lg:-mb-40">
-                        <h3 className="text-3xl font-bold font-heading mb-10 text-secondary leading-snug">
+                    <div className="flex-1 lg:max-w-[700px] bg-[#d3d9e3] rounded-[40px] p-10 md:p-14 text-slate-900 shadow-2xl z-10 lg:-mt-32 mb-12">
+                        <h3 className="text-[32px] md:text-4xl font-bold font-heading mb-10 text-secondary leading-snug">
                             Ready to Elevate Your Leadership and Drive Organizational Impact?
                         </h3>
 
@@ -100,22 +100,23 @@ export function Contact() {
                                     <input id="industry" type="text" value={formData.industry} onChange={handleChange} className={inputClass} placeholder="Industry" />
                                 </div>
                                 <div className="relative group/select">
-                                    <select id="interest" value={formData.interest} onChange={handleChange} className={`${inputClass} appearance-none cursor-pointer pr-8 bg-transparent`} required>
+                                    <select id="interest" value={formData.interest} onChange={handleChange} className={`${inputClass} appearance-none cursor-pointer pr-10 bg-transparent`} required>
                                         <option value="" disabled className="text-slate-500">Service Of Interest*</option>
-                                        <option value="training" className="text-slate-800">Training & Development</option>
-                                        <option value="leadership" className="text-slate-800">Leadership Development</option>
-                                        <option value="organizational" className="text-slate-800">Organizational Effectiveness</option>
-                                        <option value="factional" className="text-slate-800">Fractional CODC / CDO</option>
+                                        <option value="training" className="text-slate-800 font-medium py-1">Training & Development</option>
+                                        <option value="leadership" className="text-slate-800 font-medium py-1">Leadership Development</option>
+                                        <option value="organizational" className="text-slate-800 font-medium py-1">Organizational Effectiveness</option>
+                                        <option value="factional" className="text-slate-800 font-medium py-1">Fractional CODC / CDO</option>
                                     </select>
+                                    <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none group-hover/select:text-primary transition-colors" />
                                 </div>
                             </div>
 
                             <div className="relative pt-4 border-b border-slate-300">
-                                <textarea id="message" value={formData.message} onChange={handleChange} rows={2} className="w-full bg-transparent resize-none text-[15px] font-sans text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-primary peer transition-colors" placeholder="Message"></textarea>
+                                <textarea id="message" value={formData.message} onChange={handleChange} rows={2} className="w-full bg-transparent resize-none text-[17px] font-sans text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-primary peer transition-colors" placeholder="Message"></textarea>
                             </div>
 
                             <div className="pt-6">
-                                <button type="submit" className="bg-primary hover:bg-primary-hover text-secondary font-bold py-3.5 px-8 rounded-full transition-all shadow-md hover:-translate-y-0.5 text-[15px] inline-flex items-center justify-center tracking-wide">
+                                <button type="submit" className="bg-primary hover:bg-primary-hover text-secondary font-bold py-4 px-10 rounded-full transition-all shadow-md hover:-translate-y-0.5 text-[17px] inline-flex items-center justify-center tracking-wide">
                                     Submit Inquiry
                                 </button>
                             </div>

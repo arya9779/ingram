@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Menu, X, MapPin, Mail, Clock, Facebook, Linkedin, Twitter, Instagram } from 'lucide-react'
+import { Menu, X, MapPin, Mail, Clock, Facebook, Linkedin, Twitter, Instagram, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 
 export function Header() {
@@ -71,13 +71,31 @@ export function Header() {
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-8">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                className="text-[15px] font-semibold text-secondary hover:text-primary transition-colors"
-                            >
-                                {link.name}
-                            </Link>
+                            link.name === 'Services' ? (
+                                <div key={link.name} className="relative group py-2">
+                                    <Link
+                                        to={link.path}
+                                        className="text-[15px] flex items-center gap-1 font-semibold text-secondary hover:text-primary transition-colors"
+                                    >
+                                        {link.name}
+                                        <ChevronDown className="w-4 h-4 ml-0.5 group-hover:rotate-180 transition-transform duration-300" />
+                                    </Link>
+                                    <div className="absolute top-full left-0 mt-2 w-[260px] bg-white border border-slate-100 shadow-xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left group-hover:-translate-y-1 flex flex-col py-3 z-50">
+                                        <Link to="/services#training" className="px-6 py-2.5 text-[14px] font-semibold text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">Training & Development</Link>
+                                        <Link to="/services#leadership" className="px-6 py-2.5 text-[14px] font-semibold text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">Leadership Development</Link>
+                                        <Link to="/services#organizational" className="px-6 py-2.5 text-[14px] font-semibold text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">Organizational Effectiveness</Link>
+                                        <Link to="/services#fractional" className="px-6 py-2.5 text-[14px] font-semibold text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">Fractional CODC / CDO</Link>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Link
+                                    key={link.name}
+                                    to={link.path}
+                                    className="text-[15px] font-semibold text-secondary hover:text-primary transition-colors"
+                                >
+                                    {link.name}
+                                </Link>
+                            )
                         ))}
                         <Link
                             to="/contact"
