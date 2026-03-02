@@ -86,11 +86,11 @@ const clientCategories = [
 ];
 
 const logos = [
-    { name: "NASA", url: "https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" },
-    { name: "USDA", url: "https://upload.wikimedia.org/wikipedia/commons/e/e4/USDA_logo.svg" },
-    { name: "EPA", url: "https://upload.wikimedia.org/wikipedia/commons/1/14/Environmental_Protection_Agency_logo.svg" },
-    { name: "Dept of Education", url: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Seal_of_the_United_States_Department_of_Education.svg" },
-    { name: "Johns Hopkins", url: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Johns_Hopkins_University_logo.svg" },
+    { name: "NASA", url: "/nasa.png" },
+    { name: "USDA", url: "/usda.png" },
+    { name: "EPA", url: "/epa.jpg" },
+    { name: "Dept of Education", url: "/ed.png" },
+    { name: "Johns Hopkins", url: "/jh.jpg" },
 ];
 
 export function Clients() {
@@ -109,15 +109,16 @@ export function Clients() {
                 </div>
 
                 {/* Client Logos Banner */}
-                <div className="flex flex-wrap justify-center gap-12 md:gap-24 mb-20 opacity-80 mix-blend-multiply items-center">
+                <div className="flex flex-wrap justify-center gap-10 md:gap-20 mb-20 items-center">
                     {logos.map((logo, idx) => (
-                        <img
-                            key={idx}
-                            src={logo.url}
-                            alt={logo.name}
-                            className="h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
-                            title={logo.name}
-                        />
+                        <div key={idx} className="flex items-center justify-center w-28 h-28 md:w-36 md:h-36 overflow-hidden">
+                            <img
+                                src={logo.url}
+                                alt={logo.name}
+                                className="max-w-full max-h-[90px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-500 mix-blend-multiply"
+                                title={logo.name}
+                            />
+                        </div>
                     ))}
                 </div>
 
