@@ -59,16 +59,12 @@ export function Header() {
                 <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-8">
 
                     <div className="flex items-center gap-2">
-                        <Link to="/" className="flex items-center gap-3 text-secondary hover:opacity-90 transition-opacity">
+                        <Link to="/" className="flex items-center gap-2 text-secondary hover:opacity-90 transition-opacity">
                             <img
-                                src="/butterfly.png"
+                                src="/logo.png"
                                 alt="Ingram Consulting Group"
-                                className="h-[44px] w-auto object-contain"
+                                className="h-[64px] md:h-[80px] w-auto object-contain"
                             />
-                            <div className="flex flex-col leading-tight">
-                                <span className="text-[22px] font-black tracking-tight text-secondary font-heading">INGRAM</span>
-                                <span className="text-[9.5px] font-bold tracking-[0.18em] text-secondary/70 uppercase">Consulting Group International</span>
-                            </div>
                         </Link>
                     </div>
 
