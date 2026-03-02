@@ -89,7 +89,7 @@ const logos = [
     { name: "NASA", url: "/nasa.png" },
     { name: "USDA", url: "/usda.png" },
     { name: "Dept of Education", url: "/ed.png" },
-    { name: "Johns Hopkins", url: "/jh.jpg" },
+    { name: "Johns Hopkins", url: "/jh_transparent.png" },
 ];
 
 export function Clients() {
@@ -108,13 +108,13 @@ export function Clients() {
                 </div>
 
                 {/* Client Logos Banner */}
-                <div className="flex flex-wrap justify-center gap-10 md:gap-20 mb-20 items-center">
+                <div className="flex flex-wrap justify-center gap-12 md:gap-24 mb-20 items-center">
                     {logos.map((logo, idx) => (
-                        <div key={idx} className="flex items-center justify-center w-28 h-28 md:w-36 md:h-36 overflow-hidden">
+                        <div key={idx} className="flex items-center justify-center w-36 h-36 md:w-52 md:h-52 overflow-hidden">
                             <img
                                 src={logo.url}
                                 alt={logo.name}
-                                className="max-w-full max-h-[90px] object-contain hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+                                className="max-w-full max-h-[130px] md:max-h-[160px] object-contain hover:scale-110 transition-transform duration-500 mix-blend-multiply"
                                 title={logo.name}
                             />
                         </div>
