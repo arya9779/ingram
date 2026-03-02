@@ -10,9 +10,9 @@ export function Home() {
     return (
         <>
             <Hero />
-            <VideoSection />
             <Clients />
             <Awards />
+            <VideoSection />
             <Services />
             <Team />
             <Contact />
