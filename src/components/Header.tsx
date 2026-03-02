@@ -10,8 +10,7 @@ export function Header() {
         { name: 'About Us', path: '/about' },
         { name: 'Services', path: '/services' },
         { name: 'Our Clients', path: '/clients' },
-        { name: 'Podcasts', path: '/podcasts' },
-        { name: 'Contact Us', path: '/contact' },
+        { name: 'Podcasts', path: '/podcasts' }
     ]
 
     return (
