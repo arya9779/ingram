@@ -68,7 +68,7 @@ export function Team() {
                     <div className="flex-1 flex gap-6 mt-12 lg:mt-0 w-full h-[500px]">
                         {/* Team Photo Container */}
                         <div className="flex-1 h-full rounded-[32px] overflow-hidden shadow-lg border-4 border-white bg-slate-200">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop" alt="Team" className="w-full h-full object-cover" />
+                            <img src="/team_boardroom.png" alt="Ingram Consulting Team" className="w-full h-full object-cover" />
                         </div>
 
                         {/* Stats Grid */}
