@@ -1,24 +1,20 @@
-import { Trophy, Award, Star } from 'lucide-react'
 
 const awards = [
     {
-        icon: Trophy,
         org: "NASA",
         orgLogo: "/nasa.png",
         title: "ICG Receives Acknowledgment",
         description: "ICG has been recognized for supporting Organization Alignment and Executive Coaching.",
     },
     {
-        icon: Star,
-        org: "Women's Health Initiative",
-        orgLogo: null,
+        org: "Morehouse School of Medicine",
+        orgLogo: "/morehouse.jpg",
         title: "ICG Receives Awards For Outstanding Training & Coaching Services",
         description: "Coach Ingram has received recognition for outstanding services in the area of Women's Health Services.",
     },
     {
-        icon: Award,
-        org: "Federal Sector",
-        orgLogo: null,
+        org: "U.S. Dept. of State — Diplomatic Security",
+        orgLogo: "/dos_security.png",
         title: "ICG Received Outstanding Trainer Awards",
         description: "ICG has received Outstanding Trainer Awards across the Federal Sector for excellence in training delivery.",
     },
@@ -46,33 +42,28 @@ export function Awards() {
 
                 {/* Award Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {awards.map((award, idx) => {
-                        const Icon = award.icon
-                        return (
-                            <div key={idx} className="bg-white/5 border border-white/10 rounded-[32px] p-8 flex flex-col gap-6 hover:bg-white/10 hover:border-primary/40 transition-all duration-500 group">
-                                {/* Icon + Org */}
-                                <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                                        {award.orgLogo ? (
-                                            <img src={award.orgLogo} alt={award.org} className="w-10 h-10 object-contain" />
-                                        ) : (
-                                            <Icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
-                                        )}
-                                    </div>
-                                    <span className="text-primary font-bold text-sm uppercase tracking-widest">{award.org}</span>
-                                </div>
+                    {awards.map((award, idx) => (
+                        <div key={idx} className="bg-white/5 border border-white/10 rounded-[32px] p-8 flex flex-col gap-6 hover:bg-white/10 hover:border-primary/40 transition-all duration-500 group">
 
-                                {/* Divider Gold line */}
-                                <div className="w-12 h-[2px] bg-primary"></div>
-
-                                {/* Text */}
-                                <div>
-                                    <h3 className="text-xl font-bold text-white font-heading mb-3 leading-tight">{award.title}</h3>
-                                    <p className="text-slate-300 text-[15px] leading-relaxed">{award.description}</p>
+                            {/* Logo + Org name */}
+                            <div className="flex items-center gap-4">
+                                <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/20 transition-colors">
+                                    <img src={award.orgLogo} alt={award.org} className="w-12 h-12 object-contain rounded-xl" />
                                 </div>
+                                <span className="text-primary font-bold text-sm uppercase tracking-widest leading-tight">{award.org}</span>
                             </div>
-                        )
-                    })}
+
+                            {/* Divider */}
+                            <div className="w-12 h-[2px] bg-primary"></div>
+
+                            {/* Text */}
+                            <div>
+                                <h3 className="text-xl font-bold text-white font-heading mb-3 leading-tight">{award.title}</h3>
+                                <p className="text-slate-300 text-[15px] leading-relaxed">{award.description}</p>
+                            </div>
+
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
