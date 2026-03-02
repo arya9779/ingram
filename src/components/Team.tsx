@@ -47,7 +47,8 @@ export function Team() {
                 <div className="flex flex-col lg:flex-row gap-16 items-center mb-32">
 
                     <div className="flex-1 w-full max-w-2xl">
-                        <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary text-primary text-sm font-semibold mb-6">
+                        <div className="flex items-center gap-4 text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-6">
+                            <span className="w-10 h-[2px] bg-primary"></span>
                             Who We Are
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-secondary font-heading mb-6 leading-tight">

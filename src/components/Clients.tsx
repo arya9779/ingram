@@ -104,8 +104,10 @@ export function Clients() {
 
                 {/* Header content matching Consultingram text formatting */}
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                    <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary text-primary text-sm font-semibold mb-6">
+                    <div className="flex justify-center items-center gap-4 text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-6">
+                        <span className="w-10 h-[2px] bg-primary"></span>
                         Our Clients
+                        <span className="w-10 h-[2px] bg-primary"></span>
                     </div>
                     <h2 className="text-4xl font-bold tracking-tight text-secondary font-heading mb-4">
                         Trusted Across <span className="text-primary">Government</span><br />Healthcare & Beyond
