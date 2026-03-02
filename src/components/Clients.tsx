@@ -90,11 +90,6 @@ const clientCategories = [
     }
 ];
 
-const logos = [
-    { name: "USDA", url: "/usda.png" },
-    { name: "Dept of Education", url: "/ed.png" },
-    { name: "Johns Hopkins", url: "/jh_transparent.png" },
-];
 
 export function Clients() {
     return (
@@ -113,14 +108,32 @@ export function Clients() {
                     </h2>
                 </div>
 
-                {/* Client Logos Banner */}
-                <div className="flex flex-wrap justify-center gap-12 md:gap-24 mb-20 items-center">
-                    {logos.map((logo, idx) => (
-                        <div key={idx} className="flex items-center justify-center w-36 h-36 md:w-52 md:h-52 overflow-hidden">
-                            <img
-                                src={logo.url}
-                                alt={logo.name}
-                                className="max-w-full max-h-[130px] md:max-h-[160px] object-contain hover:scale-110 transition-transform duration-500 mix-blend-multiply"
+                <div className="flex flex-wrap justify-center gap-8 mb-20 items-center">
+                    {/* Existing individual logos */}
+                    {[
+                        { name: "USDA", url: "/usda.png" },
+                        { name: "Dept of Education", url: "/ed.png" },
+                        { name: "Johns Hopkins", url: "/jh_transparent.png" },
+                    ].map((logo, idx) => (
+                        <div key={idx} className="flex items-center justify-center bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 px-6 py-4 w-[180px] h-[90px]">
+                            <img src={logo.url} alt={logo.name} className="max-w-full max-h-[58px] object-contain hover:scale-105 transition-transform duration-300" title={logo.name} />
+                        </div>
+                    ))}
+                    {/* New client logos cropped from strip image */}
+                    {[
+                        { name: "MedStar Washington Hospital Center", pos: "0% 50%" },
+                        { name: "ABA Standing Committee on Election Law", pos: "33.3% 50%" },
+                        { name: "Chesapeake Utilities", pos: "66.6% 50%" },
+                        { name: "DC Courts", pos: "100% 50%" },
+                    ].map((logo, idx) => (
+                        <div key={`strip-${idx}`} className="relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 overflow-hidden w-[180px] h-[90px]">
+                            <div
+                                className="absolute inset-0 bg-no-repeat hover:scale-105 transition-transform duration-300"
+                                style={{
+                                    backgroundImage: "url('/new_clients.png')",
+                                    backgroundSize: "400% 100%",
+                                    backgroundPosition: logo.pos,
+                                }}
                                 title={logo.name}
                             />
                         </div>
