@@ -4,8 +4,9 @@ const clientCategories = [
     {
         title: "Federal & Local Government",
         icon: Building2,
-        accent: "bg-secondary",
-        iconColor: "text-secondary",
+        bgImage: "/bg_government.png",
+        colSpan: "md:col-span-7",
+        listClass: "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5",
         clients: [
             "NASA",
             "U.S. Department of Army",
@@ -30,8 +31,9 @@ const clientCategories = [
     {
         title: "Academic & Education",
         icon: GraduationCap,
-        accent: "bg-[#4aa5e5]",
-        iconColor: "text-[#4aa5e5]",
+        bgImage: "/bg_education.png",
+        colSpan: "md:col-span-5",
+        listClass: "flex flex-col gap-y-5",
         clients: [
             "Anne Arundel Community College",
             "Bowie University",
@@ -44,8 +46,9 @@ const clientCategories = [
     {
         title: "Private Sector",
         icon: Briefcase,
-        accent: "bg-slate-700",
-        iconColor: "text-slate-700",
+        bgImage: "/bg_private.png",
+        colSpan: "md:col-span-5",
+        listClass: "flex flex-col gap-y-5",
         clients: [
             "Chesapeake Utilities",
             "Colleague Training",
@@ -60,8 +63,9 @@ const clientCategories = [
     {
         title: "Non-Profit Sector",
         icon: Heart,
-        accent: "bg-primary",
-        iconColor: "text-primary",
+        bgImage: "/bg_nonprofit.png",
+        colSpan: "md:col-span-4",
+        listClass: "flex flex-col gap-y-5",
         clients: [
             "American Bar Association",
             "ATTC-Southeast & Mountain West",
@@ -75,8 +79,9 @@ const clientCategories = [
     {
         title: "Hospitals & Healthcare",
         icon: Stethoscope,
-        accent: "bg-emerald-700",
-        iconColor: "text-emerald-700",
+        bgImage: "/bg_healthcare.png",
+        colSpan: "md:col-span-3",
+        listClass: "flex flex-col gap-y-5",
         clients: [
             "Washington Hospital",
             "Whitman Walker Clinic",
@@ -121,101 +126,43 @@ export function Clients() {
                     ))}
                 </div>
 
-                {/* Bento Grid */}
+                {/* Bento Grid layout mapped cleanly */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto">
-
-                    {/* Row 1: Government (7 cols) + Academic (5 cols) */}
-                    <div className="md:col-span-7 bg-slate-50 rounded-[32px] border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300">
-                        <div className="flex items-center gap-4 px-8 py-6 border-b border-slate-200 bg-white">
-                            <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary">
-                                <Building2 strokeWidth={2} className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-bold text-secondary font-heading">Federal & Local Government</h3>
-                            <span className="ml-auto text-sm font-bold text-secondary bg-slate-100 px-3 py-1 rounded-full">{clientCategories[0].clients.length}</span>
-                        </div>
-                        <div className="p-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                            {clientCategories[0].clients.map((c) => (
-                                <div key={c} className="flex items-start gap-3 text-[15px] font-medium text-slate-600 hover:text-secondary hover:translate-x-1 transition-all">
-                                    <span className="w-2 h-2 rounded-full bg-secondary/50 flex-shrink-0 mt-1.5"></span>
-                                    {c}
+                    {clientCategories.map((cat, idx) => {
+                        const Icon = cat.icon;
+                        return (
+                            <div
+                                key={idx}
+                                className={`${cat.colSpan} group relative bg-slate-50 rounded-[32px] border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-transparent transition-all duration-500`}
+                            >
+                                {/* Background Image that appears on hover */}
+                                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                                    <img src={cat.bgImage} alt={cat.title} className="w-full h-full object-cover" />
+                                    {/* Dark overlay to ensure text remains readable */}
+                                    <div className="absolute inset-0 bg-secondary/85 backdrop-blur-sm"></div>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
 
-                    <div className="md:col-span-5 bg-slate-50 rounded-[32px] border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300">
-                        <div className="flex items-center gap-4 px-8 py-6 border-b border-slate-200 bg-white">
-                            <div className="w-12 h-12 bg-[#4aa5e5]/10 rounded-xl flex items-center justify-center text-[#4aa5e5]">
-                                <GraduationCap strokeWidth={2} className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-bold text-secondary font-heading">Academic & Education</h3>
-                            <span className="ml-auto text-sm font-bold text-[#4aa5e5] bg-slate-100 px-3 py-1 rounded-full">{clientCategories[1].clients.length}</span>
-                        </div>
-                        <div className="p-8 space-y-3">
-                            {clientCategories[1].clients.map((c) => (
-                                <div key={c} className="flex items-start gap-3 text-[15px] font-medium text-slate-600 hover:text-[#4aa5e5] hover:translate-x-1 transition-all">
-                                    <span className="w-2 h-2 rounded-full bg-[#4aa5e5]/50 flex-shrink-0 mt-1.5"></span>
-                                    {c}
+                                {/* Content wrapper, z-10 puts it over the absolute background */}
+                                <div className="relative z-10 w-full h-full flex flex-col">
+                                    <div className="flex items-center gap-4 px-8 py-6 border-b border-slate-200 bg-white group-hover:bg-transparent group-hover:border-white/20 transition-colors duration-500">
+                                        <div className="w-12 h-12 bg-secondary/10 group-hover:bg-white/10 rounded-xl flex items-center justify-center text-secondary group-hover:text-white transition-colors duration-500">
+                                            <Icon strokeWidth={2} className="w-6 h-6" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-secondary font-heading group-hover:text-white transition-colors duration-500">{cat.title}</h3>
+                                        <span className="ml-auto text-sm font-bold text-secondary bg-slate-100 group-hover:bg-white/20 group-hover:text-white px-3 py-1 rounded-full transition-colors duration-500">{cat.clients.length}</span>
+                                    </div>
+                                    <div className={`p-8 ${cat.listClass}`}>
+                                        {cat.clients.map((c, cIdx) => (
+                                            <div key={cIdx} className="flex items-start gap-3 text-[15.5px] font-semibold text-slate-600 group-hover:text-white/90 hover:!text-primary transition-all duration-300 transform group-hover:translate-x-1">
+                                                <span className="w-2.5 h-2.5 rounded-full bg-secondary/40 group-hover:bg-primary flex-shrink-0 mt-1.5 transition-colors duration-500"></span>
+                                                {c}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Row 2: Private (5 cols) + Non-Profit (4 cols) + Healthcare (3 cols) */}
-                    <div className="md:col-span-5 bg-slate-50 rounded-[32px] border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300">
-                        <div className="flex items-center gap-4 px-8 py-6 border-b border-slate-200 bg-white">
-                            <div className="w-12 h-12 bg-slate-700/10 rounded-xl flex items-center justify-center text-slate-700">
-                                <Briefcase strokeWidth={2} className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-secondary font-heading">Private Sector</h3>
-                            <span className="ml-auto text-sm font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">{clientCategories[2].clients.length}</span>
-                        </div>
-                        <div className="p-8 space-y-3">
-                            {clientCategories[2].clients.map((c) => (
-                                <div key={c} className="flex items-start gap-3 text-[15px] font-medium text-slate-600 hover:text-slate-900 hover:translate-x-1 transition-all">
-                                    <span className="w-2 h-2 rounded-full bg-slate-400/50 flex-shrink-0 mt-1.5"></span>
-                                    {c}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="md:col-span-4 bg-slate-50 rounded-[32px] border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300">
-                        <div className="flex items-center gap-4 px-8 py-6 border-b border-slate-200 bg-white">
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-                                <Heart strokeWidth={2} className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-bold text-secondary font-heading">Non-Profit</h3>
-                            <span className="ml-auto text-sm font-bold text-primary bg-slate-100 px-3 py-1 rounded-full">{clientCategories[3].clients.length}</span>
-                        </div>
-                        <div className="p-8 space-y-3">
-                            {clientCategories[3].clients.map((c) => (
-                                <div key={c} className="flex items-start gap-3 text-[15px] font-medium text-slate-600 hover:text-primary hover:translate-x-1 transition-all">
-                                    <span className="w-2 h-2 rounded-full bg-primary/50 flex-shrink-0 mt-1.5"></span>
-                                    {c}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="md:col-span-3 bg-slate-50 rounded-[32px] border border-slate-200 overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all duration-300">
-                        <div className="flex items-center gap-4 px-8 py-6 border-b border-slate-200 bg-white">
-                            <div className="w-12 h-12 bg-emerald-700/10 rounded-xl flex items-center justify-center text-emerald-700">
-                                <Stethoscope strokeWidth={2} className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-bold text-secondary font-heading">Healthcare</h3>
-                            <span className="ml-auto text-sm font-bold text-emerald-700 bg-slate-100 px-3 py-1 rounded-full">{clientCategories[4].clients.length}</span>
-                        </div>
-                        <div className="p-8 space-y-3">
-                            {clientCategories[4].clients.map((c) => (
-                                <div key={c} className="flex items-start gap-3 text-[15px] font-medium text-slate-600 hover:text-emerald-700 hover:translate-x-1 transition-all">
-                                    <span className="w-2 h-2 rounded-full bg-emerald-500/50 flex-shrink-0 mt-1.5"></span>
-                                    {c}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
+                        );
+                    })}
                 </div>
             </div>
         </section>
