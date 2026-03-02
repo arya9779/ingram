@@ -110,20 +110,20 @@ export function Clients() {
 
                 <div className="flex flex-wrap justify-center gap-6 mb-20 items-center">
                     {[
-                        { name: "MedStar Washington Hospital Center", url: "/client_medstar.png", scale: 1 },
-                        { name: "American Bar Association", url: "/client_aba.png", scale: 1.35 },
-                        { name: "Chesapeake Utilities", url: "/client_chesapeake.png", scale: 1.3 },
-                        { name: "DC Courts", url: "/client_dccourts.png", scale: 0.82 },
+                        { name: "MedStar Washington Hospital Center", url: "/client_medstar.png", scale: 1, fit: "object-cover" },
+                        { name: "American Bar Association", url: "/client_aba.png", scale: 1.35, fit: "object-cover" },
+                        { name: "Chesapeake Utilities", url: "/client_chesapeake.png", scale: 1.3, fit: "object-cover" },
+                        { name: "DC Courts", url: "/client_dccourts.png", scale: 0.9, fit: "object-contain" },
                     ].map((logo, idx) => (
                         <div
                             key={idx}
-                            className="relative bg-secondary rounded-2xl border-2 border-slate-200 shadow-sm hover:shadow-lg hover:border-primary/40 transition-all duration-300 overflow-hidden w-[220px] h-[120px] group"
+                            className="relative bg-secondary rounded-2xl border-2 border-slate-200 shadow-sm hover:shadow-lg hover:border-primary/40 transition-all duration-300 overflow-hidden w-[220px] h-[120px] group flex items-center justify-center"
                             title={logo.name}
                         >
                             <img
                                 src={logo.url}
                                 alt={logo.name}
-                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                className={`w-full h-full ${logo.fit} transition-transform duration-300 group-hover:scale-105`}
                                 style={{ transform: `scale(${logo.scale})` }}
                             />
                         </div>
