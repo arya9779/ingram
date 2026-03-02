@@ -108,33 +108,25 @@ export function Clients() {
                     </h2>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-8 mb-20 items-center">
-                    {/* Existing individual logos */}
+                <div className="flex flex-wrap justify-center gap-6 mb-20 items-center">
                     {[
-                        { name: "USDA", url: "/usda.png" },
-                        { name: "Dept of Education", url: "/ed.png" },
-                        { name: "Johns Hopkins", url: "/jh_transparent.png" },
+                        { name: "MedStar Washington Hospital Center", pos: "0% 50%", size: "400% auto" },
+                        { name: "ABA Standing Committee on Election Law", pos: "33.4% 50%", size: "400% auto" },
+                        { name: "Chesapeake Utilities", pos: "66.8% 50%", size: "400% auto" },
+                        { name: "DC Courts", pos: "100% 50%", size: "400% auto" },
                     ].map((logo, idx) => (
-                        <div key={idx} className="flex items-center justify-center bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 px-6 py-4 w-[180px] h-[90px]">
-                            <img src={logo.url} alt={logo.name} className="max-w-full max-h-[58px] object-contain hover:scale-105 transition-transform duration-300" title={logo.name} />
-                        </div>
-                    ))}
-                    {/* New client logos cropped from strip image */}
-                    {[
-                        { name: "MedStar Washington Hospital Center", pos: "0% 50%" },
-                        { name: "ABA Standing Committee on Election Law", pos: "33.3% 50%" },
-                        { name: "Chesapeake Utilities", pos: "66.6% 50%" },
-                        { name: "DC Courts", pos: "100% 50%" },
-                    ].map((logo, idx) => (
-                        <div key={`strip-${idx}`} className="relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 overflow-hidden w-[180px] h-[90px]">
+                        <div
+                            key={idx}
+                            className="relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 overflow-hidden w-[220px] h-[110px] group"
+                            title={logo.name}
+                        >
                             <div
-                                className="absolute inset-0 bg-no-repeat hover:scale-105 transition-transform duration-300"
+                                className="absolute inset-0 bg-no-repeat bg-center group-hover:scale-105 transition-transform duration-300"
                                 style={{
                                     backgroundImage: "url('/new_clients.png')",
-                                    backgroundSize: "400% 100%",
+                                    backgroundSize: logo.size,
                                     backgroundPosition: logo.pos,
                                 }}
-                                title={logo.name}
                             />
                         </div>
                     ))}
