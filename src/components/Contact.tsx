@@ -26,10 +26,10 @@ export function Contact() {
                     {/* Left Column - Contact Info */}
                     <div className="flex-1 max-w-lg pt-8">
                         <h2 className="text-4xl md:text-[50px] font-bold mb-6 font-heading tracking-tight">
-                            Conversation
+                            Reach Out
                         </h2>
-                        <p className="text-lg text-slate-300 mb-12 font-sans border-b border-white/10 pb-12">
-                            Connect with us to discuss your leadership goals, organizational challenges, and the measurable outcomes you want to achieve.
+                        <p className="text-xl font-bold text-slate-200 mb-12 font-sans border-b border-white/10 pb-12">
+                            We'd love to connect
                         </p>
 
                         <div className="space-y-8">
@@ -38,15 +38,18 @@ export function Contact() {
                                     <MapPin className="w-6 h-6" />
                                 </div>
                                 <div className="text-[17px] text-slate-200 mt-1 leading-relaxed">
-                                    4938 Hampden Lane #302 Bethesda,<br />MD 20814
+                                    <span className="font-bold text-white mb-1 block text-lg">In person</span>
+                                    Le’Angela Ingram, Principal<br />
+                                    4938 Hampden Lane #302<br />
+                                    Bethesda, MD 20814
                                 </div>
                             </div>
                             <div className="flex gap-4 items-start">
                                 <div className="bg-primary p-3 rounded-full text-secondary shrink-0">
                                     <Mail className="w-6 h-6" />
                                 </div>
-                                <div className="text-[15px] text-slate-200 mt-1.5 font-medium tracking-wide">
-                                    Support Mail:<br />
+                                <div className="text-[17px] text-slate-200 mt-1 leading-relaxed">
+                                    <span className="font-bold text-white mb-1 block text-lg">Email</span>
                                     <a href="mailto:leangela@consultingram.com" className="text-white hover:text-primary transition-colors">leangela@consultingram.com</a>
                                 </div>
                             </div>
@@ -54,8 +57,8 @@ export function Contact() {
                                 <div className="bg-primary p-3 rounded-full text-secondary shrink-0">
                                     <Phone className="w-6 h-6" />
                                 </div>
-                                <div className="text-[15px] text-slate-200 mt-1.5 font-medium tracking-wide">
-                                    Call Us:<br />
+                                <div className="text-[17px] text-slate-200 mt-1 leading-relaxed">
+                                    <span className="font-bold text-white mb-1 block text-lg">Drop us a line</span>
                                     <a href="tel:2026436011" className="text-white hover:text-primary transition-colors">(202) 643-6011</a>
                                 </div>
                             </div>

@@ -3,33 +3,38 @@ const founder = {
     name: "Le'Angela Ingram, Ed.D.",
     role: 'Founder & Principal Consultant',
     bio: 'Dr. Le\'Angela Ingram founded ICG in 1995 with a vision to help organizations develop their most valuable asset — their people. With an Ed.D. in Organizational Leadership, she has coached over 5,000 leaders globally.',
-    initials: 'LI'
+    initials: 'LI',
+    aboutText: "About Le'Angela"
 }
 
 const teamMembers = [
     {
-        name: 'Barbara',
-        role: 'Senior Consultant',
+        name: 'Barbara Upston',
+        role: 'Sr. Consultant',
         bio: 'Extensive experience in organizational development and leadership training.',
-        initials: 'B'
+        initials: 'BU',
+        aboutText: "About Barbara"
     },
     {
-        name: 'John',
-        role: 'Senior Consultant',
+        name: 'John Riordan',
+        role: 'Sr. Consultant',
         bio: 'Deep expertise in strategic planning and change management across sectors.',
-        initials: 'J'
+        initials: 'JR',
+        aboutText: "About John"
     },
     {
-        name: 'Tony',
-        role: 'Senior Consultant',
-        bio: 'Wealth of experience in curriculum design and instructor development.',
-        initials: 'T'
-    },
-    {
-        name: 'Jorie',
-        role: 'Senior Consultant',
+        name: 'Nancy Rosenshine',
+        role: 'Sr. Consultant',
         bio: 'Specializes in executive coaching, conflict resolution, and resilience training.',
-        initials: 'J'
+        initials: 'NR',
+        aboutText: "About Nancy"
+    },
+    {
+        name: 'Tony Bennae',
+        role: 'Sr. Consultant',
+        bio: 'Wealth of experience in curriculum design and instructor development.',
+        initials: 'TB',
+        aboutText: "About Tony"
     }
 ]
 
@@ -106,7 +111,10 @@ export function Team() {
                     <div className="flex-1 text-center md:text-left py-4 pr-6">
                         <h3 className="text-3xl font-bold text-secondary mb-2 font-heading">{founder.name}</h3>
                         <p className="text-primary font-bold text-sm uppercase tracking-widest mb-6 font-sans border-b border-primary/20 pb-4 inline-block w-full">{founder.role}</p>
-                        <p className="text-slate-600 leading-relaxed font-sans mb-8 text-lg">{founder.bio}</p>
+                        <p className="text-slate-600 leading-relaxed font-sans mb-6 text-lg">{founder.bio}</p>
+                        <button className="text-secondary hover:text-primary font-bold transition-colors inline-flex items-center gap-2">
+                            {founder.aboutText} <span className="text-xl leading-none">&rarr;</span>
+                        </button>
                     </div>
                 </div>
 
@@ -119,7 +127,10 @@ export function Team() {
                             </div>
                             <h4 className="text-xl font-bold text-secondary mb-2 font-heading">{member.name}</h4>
                             <p className="text-primary font-bold text-xs uppercase tracking-widest mb-4 font-sans">{member.role}</p>
-                            <p className="text-slate-500 text-[15px] leading-relaxed font-sans">{member.bio}</p>
+                            <p className="text-slate-500 text-[15px] leading-relaxed font-sans mb-6">{member.bio}</p>
+                            <button className="text-secondary hover:text-primary font-bold text-sm transition-colors inline-flex items-center gap-1.5">
+                                {member.aboutText} <span className="text-lg leading-none">&rarr;</span>
+                            </button>
                         </div>
                     ))}
                 </div>

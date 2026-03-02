@@ -7,11 +7,11 @@ export function Header() {
 
     const navLinks = [
         { name: 'Home', path: '/' },
-        { name: 'About Us', path: '#about' },
-        { name: 'Services', path: '#services' },
-        { name: 'Our Clients', path: '#clients' },
-        { name: 'Podcasts', path: '#podcasts' },
-        { name: 'Contact Us', path: '#contact' },
+        { name: 'About Us', path: '/about' },
+        { name: 'Services', path: '/services' },
+        { name: 'Our Clients', path: '/clients' },
+        { name: 'Podcasts', path: '/podcasts' },
+        { name: 'Contact Us', path: '/contact' },
     ]
 
     return (
@@ -72,20 +72,20 @@ export function Header() {
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-8">
                         {navLinks.map((link) => (
-                            <a
+                            <Link
                                 key={link.name}
-                                href={link.path}
+                                to={link.path}
                                 className="text-[15px] font-semibold text-secondary hover:text-primary transition-colors"
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         ))}
-                        <a
-                            href="#contact"
-                            className="rounded-full bg-primary px-6 py-3 text-[15px] font-bold text-secondary shadow-md hover:bg-primary-hover hover:-translate-y-0.5 transition-all"
+                        <Link
+                            to="/contact"
+                            className="rounded-full bg-primary px-6 py-3 text-[15px] font-bold text-secondary shadow-md hover:bg-primary-hover hover:-translate-y-0.5 transition-all w-max inline-block"
                         >
                             Book An Appointment
-                        </a>
+                        </Link>
                     </nav>
 
                     {/* Mobile menu button */}
@@ -106,14 +106,14 @@ export function Header() {
                     <div className="lg:hidden border-t border-slate-200 bg-white">
                         <div className="space-y-1 px-4 pb-3 pt-2 sm:px-6">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
-                                    href={link.path}
+                                    to={link.path}
                                     className="block rounded-md px-3 py-2 text-base font-medium text-secondary hover:bg-slate-50 hover:text-primary"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </div>
