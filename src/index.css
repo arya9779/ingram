@@ -19,4 +19,5 @@
 /* Base custom resets */
 html {
   scroll-behavior: smooth;
+  zoom: 0.9;
 }

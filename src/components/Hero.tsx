@@ -1,4 +1,3 @@
-import { Bot } from 'lucide-react'
 
 export function Hero() {
     return (
@@ -24,29 +23,16 @@ export function Hero() {
                         >
                             Contact Us
                         </a>
-
-                        {/* Pagination Dots mimic */}
-                        <div className="flex gap-2 items-center">
-                            <div className="w-3 h-3 rounded-full border border-slate-400"></div>
-                            <div className="w-3 h-3 rounded-full border border-primary relative flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                {/* Right Card: High-quality photo + Floating Bot mimicking Figma Image box */}
+                {/* Right Card: High-quality photo border-4 border-slate-50 relative */}
                 <div className="flex-1 lg:max-w-[50%] rounded-[32px] overflow-hidden relative shadow-lg min-h-[400px] flex items-center justify-center group border-4 border-slate-50 relative">
                     {/* Static image placeholder */}
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop" alt="Team Office" className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" />
                     <div className="absolute inset-0 bg-secondary/10 hover:bg-transparent transition-colors duration-500" />
 
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-secondary/50 to-transparent pointer-events-none" />
-
-                    {/* Floating Bot inside Right Card */}
-                    <div className="absolute bottom-8 right-8 w-24 h-24 bg-primary rounded-[24px] flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.4)] border-4 border-white hover:scale-105 hover:-translate-y-1 transition-all z-20 group/bot">
-                        <Bot className="text-secondary w-12 h-12 group-hover/bot:animate-pulse" strokeWidth={2} />
-                    </div>
                 </div>
             </div>
         </section>
