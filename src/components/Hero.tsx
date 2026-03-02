@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 
 export function Hero() {
     return (
@@ -7,9 +8,9 @@ export function Hero() {
 
                 {/* Left Card: Light beige/blue tint to fit requested colors */}
                 <div className="flex-1 bg-slate-50 rounded-[32px] p-10 md:p-16 flex flex-col justify-center relative shadow-sm border border-slate-100 min-h-[500px]">
-                    <h1 className="text-secondary font-bold text-5xl md:text-[64px] leading-[1.1] font-heading mb-6 tracking-tight">
-                        Building individuals and <br />
-                        organization <span className="text-primary">infrastructure.</span>
+                    <h1 className="text-secondary font-bold text-5xl xl:text-[64px] leading-[1.1] font-heading mb-6 tracking-tight">
+                        Empowering Individuals.<br />
+                        Building Organizational <span className="text-primary">Infrastructure.</span>
                     </h1>
 
                     <p className="text-lg md:text-xl text-slate-600 font-sans mb-12 max-w-xl leading-relaxed">
@@ -17,12 +18,12 @@ export function Hero() {
                     </p>
 
                     <div className="mt-auto flex items-center justify-between">
-                        <a
-                            href="#contact"
-                            className="rounded-full bg-primary px-8 py-4 text-lg font-bold text-secondary shadow-md hover:bg-primary-hover hover:-translate-y-0.5 transition-all"
+                        <Link
+                            to="/contact"
+                            className="rounded-full bg-primary px-8 py-4 text-lg font-bold text-secondary shadow-md hover:bg-primary-hover hover:-translate-y-0.5 transition-all inline-block"
                         >
                             Contact Us
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
