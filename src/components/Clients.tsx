@@ -88,7 +88,6 @@ const clientCategories = [
 const logos = [
     { name: "NASA", url: "/nasa.png" },
     { name: "USDA", url: "/usda.png" },
-    { name: "EPA", url: "/epa.jpg" },
     { name: "Dept of Education", url: "/ed.png" },
     { name: "Johns Hopkins", url: "/jh.jpg" },
 ];
@@ -115,7 +114,7 @@ export function Clients() {
                             <img
                                 src={logo.url}
                                 alt={logo.name}
-                                className="max-w-full max-h-[90px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-500 mix-blend-multiply"
+                                className="max-w-full max-h-[90px] object-contain hover:scale-105 transition-transform duration-500 mix-blend-multiply"
                                 title={logo.name}
                             />
                         </div>
