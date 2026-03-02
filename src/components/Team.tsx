@@ -23,11 +23,11 @@ const teamMembers = [
         aboutText: "About John"
     },
     {
-        name: 'Nancy Rosenshine',
+        name: 'Jorie Gelnett',
         role: 'Sr. Consultant',
         bio: 'Specializes in executive coaching, conflict resolution, and resilience training.',
-        initials: 'NR',
-        aboutText: "About Nancy"
+        initials: 'JG',
+        aboutText: "About Jorie"
     },
     {
         name: 'Tony Bennae',
