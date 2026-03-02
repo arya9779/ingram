@@ -110,10 +110,10 @@ export function Clients() {
 
                 <div className="flex flex-wrap justify-center gap-6 mb-20 items-center">
                     {[
-                        { name: "MedStar Washington Hospital Center", url: "/client_medstar.png" },
-                        { name: "American Bar Association", url: "/client_aba.png" },
-                        { name: "Chesapeake Utilities", url: "/client_chesapeake.png" },
-                        { name: "DC Courts", url: "/client_dccourts.png" },
+                        { name: "MedStar Washington Hospital Center", url: "/client_medstar.png", scale: 1 },
+                        { name: "American Bar Association", url: "/client_aba.png", scale: 1.35 },
+                        { name: "Chesapeake Utilities", url: "/client_chesapeake.png", scale: 1.3 },
+                        { name: "DC Courts", url: "/client_dccourts.png", scale: 0.82 },
                     ].map((logo, idx) => (
                         <div
                             key={idx}
@@ -123,7 +123,8 @@ export function Clients() {
                             <img
                                 src={logo.url}
                                 alt={logo.name}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                style={{ transform: `scale(${logo.scale})` }}
                             />
                         </div>
                     ))}
