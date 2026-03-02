@@ -9,8 +9,7 @@ export function Hero() {
                 {/* Left Card: Light beige/blue tint to fit requested colors */}
                 <div className="flex-1 bg-slate-50 rounded-[32px] p-10 md:p-16 flex flex-col justify-center relative shadow-sm border border-slate-100 min-h-[500px]">
                     <h1 className="text-secondary font-bold text-5xl xl:text-[64px] leading-[1.1] font-heading mb-6 tracking-tight">
-                        Empowering Individuals.<br />
-                        Building Organizational <span className="text-primary">Infrastructure.</span>
+                        Empowering Individuals. Building Organizational <span className="text-primary">Infrastructure.</span>
                     </h1>
 
                     <p className="text-lg md:text-xl text-slate-600 font-sans mb-12 max-w-xl leading-relaxed">
