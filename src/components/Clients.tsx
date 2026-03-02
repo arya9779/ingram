@@ -110,23 +110,20 @@ export function Clients() {
 
                 <div className="flex flex-wrap justify-center gap-6 mb-20 items-center">
                     {[
-                        { name: "MedStar Washington Hospital Center", pos: "0% 50%", size: "400% auto" },
-                        { name: "ABA Standing Committee on Election Law", pos: "33.4% 50%", size: "400% auto" },
-                        { name: "Chesapeake Utilities", pos: "66.8% 50%", size: "400% auto" },
-                        { name: "DC Courts", pos: "100% 50%", size: "400% auto" },
+                        { name: "MedStar Washington Hospital Center", url: "/client_medstar.png" },
+                        { name: "American Bar Association", url: "/client_aba.png" },
+                        { name: "Chesapeake Utilities", url: "/client_chesapeake.png" },
+                        { name: "DC Courts", url: "/client_dccourts.png" },
                     ].map((logo, idx) => (
                         <div
                             key={idx}
-                            className="relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 overflow-hidden w-[220px] h-[110px] group"
+                            className="relative bg-secondary rounded-2xl border-2 border-slate-200 shadow-sm hover:shadow-lg hover:border-primary/40 transition-all duration-300 overflow-hidden w-[220px] h-[120px] group"
                             title={logo.name}
                         >
-                            <div
-                                className="absolute inset-0 bg-no-repeat bg-center group-hover:scale-105 transition-transform duration-300"
-                                style={{
-                                    backgroundImage: "url('/new_clients.png')",
-                                    backgroundSize: logo.size,
-                                    backgroundPosition: logo.pos,
-                                }}
+                            <img
+                                src={logo.url}
+                                alt={logo.name}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                         </div>
                     ))}
