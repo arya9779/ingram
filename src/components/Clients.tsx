@@ -91,7 +91,6 @@ const clientCategories = [
 ];
 
 const logos = [
-    { name: "NASA", url: "/nasa.png" },
     { name: "USDA", url: "/usda.png" },
     { name: "Dept of Education", url: "/ed.png" },
     { name: "Johns Hopkins", url: "/jh_transparent.png" },
