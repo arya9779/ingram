@@ -81,8 +81,8 @@ export function Hero() {
                         </div>
                     </div>
 
-                    {/* Thumbnail strip */}
-                    <div className="flex gap-3 h-[110px]">
+                    {/* Thumbnail strip (hidden per request) */}
+                    <div className="hidden gap-3 h-[110px]">
                         {heroImages.map((img, idx) => (
                             <button
                                 key={idx}

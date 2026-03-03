@@ -111,7 +111,7 @@ export function Clients() {
                 <div className="flex flex-wrap justify-center gap-6 mb-20 items-center">
                     {[
                         { name: "MedStar Washington Hospital Center", url: "/client_medstar.png", scale: 1, fit: "object-cover" },
-                        { name: "American Bar Association", url: "/client_aba.png", scale: 1.35, fit: "object-cover" },
+                        { name: "American Bar Association", url: "/client_aba.png", scale: 1, fit: "object-contain" },
                         { name: "Chesapeake Utilities", url: "/client_chesapeake.png", scale: 1.3, fit: "object-cover" },
                         { name: "DC Courts", url: "/client_dccourts.png", scale: 0.9, fit: "object-contain" },
                     ].map((logo, idx) => (
